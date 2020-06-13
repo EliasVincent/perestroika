@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-onready var playerNode = get_node("/root/Main/Person")
+onready var playerNode = get_node("/root/Main/Player")
 
 var xSpeed = 0
 var ySpeed = 0
@@ -26,6 +26,7 @@ func _process(delta):
 		State.IDLE:
 			xSpeed = rand_range(-1, 1)
 			ySpeed = rand_range(-1, 1)
-		State.ATTACK:			
-			position.x = move_toward(position.x, playerNode.position.x, 0.1)
-			position.y = move_toward(position.y, playerNode.position.y, 0.1)
+		State.ATTACK:	
+			xSpeed = 0
+			ySpeed = 0		
+			position = position.move_toward(playerNode.position, delta * 100)

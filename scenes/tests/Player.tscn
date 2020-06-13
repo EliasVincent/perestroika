@@ -6,8 +6,9 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 32 )
 
-[node name="KinematicBody2D" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D"]
 position = Vector2( 520, 464 )
+z_index = 1
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
