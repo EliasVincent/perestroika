@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-var player = preload("res://scenes/tests/Player.tscn")
+onready var playerNode = get_node("/root/Main/Person")
 
 var xSpeed = 0
 var ySpeed = 0
@@ -8,7 +8,7 @@ var ySpeed = 0
 var health = 100
 
 enum State {IDLE, ATTACK}
-var currentState = State.IDLE
+var currentState = State.ATTACK
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,10 +21,6 @@ func _process(delta):
 		State.IDLE:
 			xSpeed = rand_range(-1, 1)
 			ySpeed = rand_range(-1, 1)
-		State.ATTACK:
-			var destX = player.position.x - position.x
-			var destY = player.position.y - position.y
-			
-			if destX == 0 and destY == 0:
-				xSpeed = 0
-				ySpeed = 0
+		State.ATTACK:			
+			position.x = move_toward(position.x, playerNode.position.x, 0.1)
+			position.y = move_toward(position.y, playerNode.position.y, 0.1)
