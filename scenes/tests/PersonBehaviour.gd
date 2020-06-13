@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+var player = preload("res://scenes/tests/Player.tscn")
+
 var xSpeed = 0
 var ySpeed = 0
 
@@ -20,4 +22,9 @@ func _process(delta):
 			xSpeed = rand_range(-1, 1)
 			ySpeed = rand_range(-1, 1)
 		State.ATTACK:
-			pass
+			var destX = player.position.x - position.x
+			var destY = player.position.y - position.y
+			
+			if destX == 0 and destY == 0:
+				xSpeed = 0
+				ySpeed = 0
