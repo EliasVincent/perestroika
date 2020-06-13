@@ -8,6 +8,7 @@ radius = 30.9373
 
 [node name="Person" type="KinematicBody2D"]
 position = Vector2( 417.069, 207.374 )
+scale = Vector2( 0.1, 0.1 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
