@@ -17,6 +17,11 @@ func _ready():
 func _process(delta):
 	position += Vector2(xSpeed, ySpeed)
 	
+	if Input.is_action_just_pressed("idleState"):
+		currentState = State.IDLE
+	if (Input.is_action_just_pressed("attackState")):
+		currentState = State.ATTACK
+	
 	match currentState:
 		State.IDLE:
 			xSpeed = rand_range(-1, 1)
