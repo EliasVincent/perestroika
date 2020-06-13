@@ -6,6 +6,14 @@ const SPEED = 200
 
 signal playerPosition
 
+var numberOfEnters = 0
+
+# happens when another Area2D enters the Area2D
+func _on_Area2D_area_entered(area):
+	numberOfEnters += 1
+	print(numberOfEnters)
+
+
 # everything physics and controls should happen in _physics_process
 func _physics_process(delta):
 	
@@ -29,3 +37,6 @@ func _physics_process(delta):
 
 func _ready():
 	pass
+
+
+

@@ -56,6 +56,10 @@ attackState={
  ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="enemy"
+
 [rendering]
 
 quality/driver/driver_name="GLES2"
