@@ -4,6 +4,8 @@ var velocity = Vector2(0,0)
 
 const SPEED = 200
 
+signal playerPosition
+
 # everything physics and controls should happen in _physics_process
 func _physics_process(delta):
 	
@@ -20,9 +22,10 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity)
 
 	# function that slowly stops the player, adjust the last value of the speed of the slowdown
-	velocity.x = lerp(velocity.x,0,0.2)
-	velocity.y = lerp(velocity.y,0,0.2)
+	velocity.x = lerp(velocity.x,0,0.3)
+	velocity.y = lerp(velocity.y,0,0.3)
 	
+	emit_signal("playerPosition")
 
 func _ready():
 	pass
