@@ -16,6 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Godot Wild Jam 22 Game"
+run/main_scene="res://scenes/tests/Main.tscn"
 config/icon="res://icon.png"
 
 [rendering]
