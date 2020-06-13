@@ -11,7 +11,11 @@ radius = 30.9373
 
 [node name="Person" type="KinematicBody2D"]
 position = Vector2( 417.069, 207.374 )
+<<<<<<< HEAD
 collision_mask = 0
+=======
+scale = Vector2( 0.1, 0.1 )
+>>>>>>> 469d447ee15579a13128bef9a9ff7d2972113150
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
