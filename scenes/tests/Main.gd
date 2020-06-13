@@ -1,6 +1,6 @@
 extends Node2D
 
-var myBody = preload("res://scenes/tests/RigidBody2D.tscn")
+var myBody = preload("res://scenes/tests/Person.tscn")
 
 func _ready():
 	var numOfSpawns = 5

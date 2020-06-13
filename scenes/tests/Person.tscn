@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 30.4265, 31.6899 )
 
-[node name="RigidBody2D" type="RigidBody2D"]
+[node name="Person" type="KinematicBody2D"]
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
