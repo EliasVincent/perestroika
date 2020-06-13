@@ -5,7 +5,7 @@ var ySpeed = 0
 
 var health = 100
 
-enum State {IDLE}
+enum State {IDLE, ATTACK}
 var currentState = State.IDLE
 
 # Called when the node enters the scene tree for the first time.
@@ -19,3 +19,5 @@ func _process(delta):
 		State.IDLE:
 			xSpeed = rand_range(-1, 1)
 			ySpeed = rand_range(-1, 1)
+		State.ATTACK:
+			pass
