@@ -3,7 +3,8 @@ extends KinematicBody2D
 onready var enemiesFolder = get_node("/root/Main/Enemies")
 
 var velocity = Vector2(0,0)
-const SPEED = 200
+var hp = 100
+const SPEED = 100
 signal playerPosition
 var numberOfEnters = 0
 
@@ -41,7 +42,8 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("action"):
 		var enemyList = getAllEnemiesInRadius(100)
 		for i in enemyList:
-			i.get_node("Sprite").modulate = Color(1, 0, 0)
+			i.get_node("Sprite").modulate = Color(0, 0, 1)
+			i.currentState = i.State.DEFEND
 		
 	# moves the body, with the velocity as parameter
 	velocity = move_and_slide(velocity)
