@@ -4,10 +4,7 @@ var myBody = preload("res://scenes/tests/Person.tscn")
 var myPerson = preload("res://scenes/tests/Player.tscn")
 onready var enemiesFolder = get_node("/root/Main/Enemies")
 
-func _ready():
-	var grabbedPlayer = myPerson.instance()
-	self.add_child(grabbedPlayer)
-	
+func _ready():	
 	var numOfSpawns = 1000
 	for i in numOfSpawns:
 		var grabbedInstance = myBody.instance()
