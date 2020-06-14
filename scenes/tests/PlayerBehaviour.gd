@@ -8,8 +8,7 @@ signal playerPosition
 
 var numberOfEnters = 0
 
-# happens when another Area2D enters the Area2D
-func _on_Area2D_area_entered(area):
+func getAllEnemies():
 	numberOfEnters += 1
 	print(numberOfEnters)
 
