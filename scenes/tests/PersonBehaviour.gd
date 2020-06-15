@@ -54,8 +54,9 @@ func _process(delta):
 		State.DEFEND:
 			xSpeed = 0
 			ySpeed = 0
+			$Sprite.modulate = Color(0, 0, 1)
 			position = position.move_toward(playerNode.position + Vector2(rand_range(-500, 500), rand_range(-500, 500)), delta * chaseSpeed)
-	
+
 	# looks if Person is mad and "inside" the player
 	if mad and instanceInRange(playerNode, 1):
 		PlayerData.Health -= 10

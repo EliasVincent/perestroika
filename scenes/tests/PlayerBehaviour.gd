@@ -42,7 +42,6 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("action"):
 		var enemyList = getAllEnemiesInRadius(100)
 		for i in enemyList:
-			i.get_node("Sprite").modulate = Color(0, 0, 1)
 			i.currentState = i.State.DEFEND
 		
 	# moves the body, with the velocity as parameter

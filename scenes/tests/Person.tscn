@@ -3,7 +3,9 @@
 [ext_resource path="res://sprites/placeholders/person_placeholder.png" type="Texture" id=1]
 [ext_resource path="res://scenes/tests/PersonBehaviour.gd" type="Script" id=2]
 
-[node name="Person" type="KinematicBody2D"]
+[node name="Person" type="KinematicBody2D" groups=[
+"enemy",
+]]
 position = Vector2( 417.069, 207.374 )
 scale = Vector2( 0.1, 0.1 )
 collision_layer = 0
