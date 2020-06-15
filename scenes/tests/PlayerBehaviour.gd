@@ -29,7 +29,7 @@ func instanceInRange(instance, distance):
 
 # everything physics and controls should happen in _physics_process
 func _physics_process(delta):
-	
+	checkForEnemies()
 	if Input.is_action_pressed("up"):
 		velocity.y = -SPEED
 	if Input.is_action_pressed("down"):
@@ -53,8 +53,36 @@ func _physics_process(delta):
 	
 	emit_signal("playerPosition")
 
-func _ready():
-	pass
+func battle(enemyCount, enemyList):
+	for i in enemyCount:
+		var randNum = rand_range(0,2)
+		if randNum < 1:
+			#Delete defending unit
+			for enemy in get_tree().get_nodes_in_group("enemy"):
+				if enemy.currentState == enemy.State.DEFEND:
+					enemy.queue_free()
+					enemyCount-=1
+					break
+		else:
+			#Delete enemy in range
+			for enemy in enemyList:
+				enemy.queue_free()
+				enemyCount-=1
+				break
+		
+func checkForEnemies():
+	var enemyCount = 0
+	var enemyList = []
+	var defendUnitExists = false
+	for enemy in get_tree().get_nodes_in_group("enemy"):
+		if instanceInRange(enemy, 50) and enemy.mad:
+			enemyCount+=1
+			var temp = [enemy]
+			enemyList += temp
+		if enemy.currentState == enemy.State.DEFEND:
+			defendUnitExists = true
+	if enemyCount > 0 and defendUnitExists:
+		battle(enemyCount, enemyList)
 
 
 

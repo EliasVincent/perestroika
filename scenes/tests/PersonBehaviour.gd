@@ -7,7 +7,8 @@ var ySpeed = 0
 
 var health = 100
 var mad = false;
-var chaseSpeed = 30
+var chaseSpeed = 100
+var followSpeed = 250
 var agroRange = 80
 
 enum State {IDLE, ATTACK, DEFEND}
@@ -55,7 +56,7 @@ func _process(delta):
 			xSpeed = 0
 			ySpeed = 0
 			$Sprite.modulate = Color(0, 0, 1)
-			position = position.move_toward(playerNode.position + Vector2(rand_range(-500, 500), rand_range(-500, 500)), delta * chaseSpeed)
+			position = position.move_toward(playerNode.position + Vector2(rand_range(-500, 500), rand_range(-500, 500)), delta * followSpeed)
 
 	# looks if Person is mad and "inside" the player
 	if mad and instanceInRange(playerNode, 1):
