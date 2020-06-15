@@ -44,11 +44,12 @@ func _physics_process(delta):
 		$RecruitAudioPlayer.play()
 		var enemyList = getAllEnemiesInRadius(100)
 		for i in enemyList:
-			var randNum = rand_range(0,9)
-			if randNum < 3:
-				i.currentState = i.State.DEFEND
-			elif randNum < 4:
-				i.mad = true
+			if i.currentState != i.State.DEFEND:
+				var randNum = rand_range(0,9)
+				if randNum < 3:
+					i.currentState = i.State.DEFEND
+				elif randNum < 4:
+					i.mad = true
 		
 	# moves the body, with the velocity as parameter
 	velocity = move_and_slide(velocity)
