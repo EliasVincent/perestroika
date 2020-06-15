@@ -18,4 +18,7 @@ func _ready():
 	
 func _process(delta):			
 	if PlayerData.Health == 0:
-		get_tree().change_scene("res://scenes/UI/GameOverPanel.tscn")
+		$AnimationPlayer.play("player_death")
+
+func playerDeath():
+	get_tree().change_scene("res://scenes/UI/GameOverPanel.tscn")

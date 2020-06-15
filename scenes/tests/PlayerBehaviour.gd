@@ -41,6 +41,7 @@ func _physics_process(delta):
 	
 	#JOIN ABILITY
 	if Input.is_action_just_pressed("action"):
+		$RecruitAudioPlayer.play()
 		var enemyList = getAllEnemiesInRadius(100)
 		for i in enemyList:
 			var randNum = rand_range(0,9)

@@ -44,6 +44,7 @@ func _process(delta):
 		$Sprite.modulate = Color(madStatus, 0, 0)
 		
 	if madStatus > 1:
+		$TurnsEvilAudioPlayer.play()
 		madStatusDone = true;
 		madStatus = 1
 		currentState = State.ATTACK
@@ -72,4 +73,5 @@ func _process(delta):
 	# looks if Person is mad and "inside" the player
 	if mad and instanceInRange(playerNode, 1):
 		PlayerData.Health -= 10
+		PlayerData.play_hit_by_enemy_audio()
 		queue_free()

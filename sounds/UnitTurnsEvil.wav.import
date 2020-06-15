@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/UnitTurnsEvil.wav-c877ea8d720744a716dbf0ed199215cb.sample"
+
+[deps]
+
+source_file="res://sounds/UnitTurnsEvil.wav"
+dest_files=[ "res://.import/UnitTurnsEvil.wav-c877ea8d720744a716dbf0ed199215cb.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
