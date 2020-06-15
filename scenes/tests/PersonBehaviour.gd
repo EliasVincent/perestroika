@@ -11,12 +11,16 @@ var chaseSpeed = 100
 var followSpeed = 250
 var agroRange = 80
 
+var xDist = 0
+var yDist = 0
+
 enum State {IDLE, ATTACK, DEFEND}
 var currentState = State.IDLE
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	xDist = rand_range(-50, 50)
+	yDist = rand_range(-50, 50)
 	
 func instanceInRange(instance, distance):
 	#Check if instance is in range of given distance to player
@@ -56,7 +60,7 @@ func _process(delta):
 			xSpeed = 0
 			ySpeed = 0
 			$Sprite.modulate = Color(0, 0, 1)
-			position = position.move_toward(playerNode.position + Vector2(rand_range(-500, 500), rand_range(-500, 500)), delta * followSpeed)
+			position = position.move_toward(playerNode.position + Vector2(xDist, yDist), delta * followSpeed)
 
 	# looks if Person is mad and "inside" the player
 	if mad and instanceInRange(playerNode, 1):
