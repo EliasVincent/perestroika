@@ -55,3 +55,8 @@ func _process(delta):
 			xSpeed = 0
 			ySpeed = 0
 			position = position.move_toward(playerNode.position + Vector2(rand_range(-500, 500), rand_range(-500, 500)), delta * chaseSpeed)
+	
+	# looks if Person is mad and "inside" the player
+	if mad and instanceInRange(playerNode, 1):
+		PlayerData.Health -= 10
+		queue_free()
