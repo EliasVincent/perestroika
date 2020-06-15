@@ -32,9 +32,12 @@ func instanceInRange(instance, distance):
 
 func _process(delta):
 	position += Vector2(xSpeed, ySpeed)
-	
+	var randNum = 0
 	#Mad Status
-	var randNum = rand_range(0, 200000)
+	if currentState == State.IDLE:
+		randNum = rand_range(0, 200000)
+	if currentState == State.DEFEND:
+		randNum = rand_range(0, 50000)
 	if randNum < 1:
 		mad = true
 		
