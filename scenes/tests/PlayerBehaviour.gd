@@ -57,7 +57,13 @@ func _physics_process(delta):
 					i.currentState = i.State.DEFEND
 				elif randNum < 4:
 					i.mad = true
-		
+	
+	# CHEATS, DELETE BEFORE RELEASE
+	if Input.is_action_just_pressed("fame-cheat"):
+		PlayerData.FAME += 300
+	if Input.is_action_just_pressed("death-cheat"):
+		PlayerData.Health = 0
+	
 	# moves the body, with the velocity as parameter
 	velocity = move_and_slide(velocity)
 

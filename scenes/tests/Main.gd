@@ -9,7 +9,8 @@ var dict := {}
 signal hasDied
 
 func _ready():
-	PlayerData.Health = 100 # resets the health when retrying
+	PlayerData.FAME = PlayerData.StartFAME
+	PlayerData.Health = PlayerData.StartHealth # resets the health when retrying
 	randomize() # randomizes the seed, otherwise the RnG would always be the same
 
 	var numOfSpawns = 1000
@@ -19,7 +20,7 @@ func _ready():
 		enemiesFolder.add_child(grabbedInstance)
 	
 func _process(delta):			
-	if PlayerData.Health == 0:
+	if PlayerData.Health <= 0:
 		$AnimationPlayer.play("player_death")
 
 func playerDeath():
