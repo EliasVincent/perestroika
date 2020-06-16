@@ -6,6 +6,8 @@ onready var enemiesFolder = get_node("/root/Main/Enemies")
 
 var dict := {}
 
+signal hasDied
+
 func _ready():
 	PlayerData.Health = 100 # resets the health when retrying
 	randomize() # randomizes the seed, otherwise the RnG would always be the same
@@ -22,3 +24,6 @@ func _process(delta):
 
 func playerDeath():
 	get_tree().change_scene("res://scenes/UI/GameOverPanel.tscn")
+	
+func emitDeath():
+	emit_signal("hasDied")

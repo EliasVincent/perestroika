@@ -91,5 +91,5 @@ func checkForEnemies():
 	if enemyCount > 0 and defendUnitExists:
 		battle(enemyCount, enemyList)
 
-
-
+func _on_Main_hasDied():
+	$PlayerDeathParticles.emitting = true
