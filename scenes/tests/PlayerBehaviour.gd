@@ -44,7 +44,7 @@ func _physics_process(delta):
 		$RecruitAudioPlayer.play()
 		var enemyList = getAllEnemiesInRadius(100)
 		for i in enemyList:
-			if i.currentState != i.State.DEFEND:
+			if i.currentState != i.State.DEFEND and not i.mad:
 				var randNum = rand_range(0,9)
 				if randNum < 3:
 					i.currentState = i.State.DEFEND

@@ -14,8 +14,10 @@ var followSpeed = 250
 var agroRange = 80
 var xDist = 0
 var yDist = 0
+var target = null
+var gettingTargeted = false
 
-enum State {IDLE, ATTACK, DEFEND}
+enum State {IDLE, ATTACK, DEFEND, JOIN, LEADER}
 var currentState = State.IDLE
 
 # Called when the node enters the scene tree for the first time.
@@ -52,6 +54,16 @@ func _process(delta):
 		madStatusDone = true;
 		madStatus = 1
 		currentState = State.ATTACK
+
+	#Search for enemy group
+	if target == null and currentState == State.ATTACK and not gettingTargeted:
+		for enemy in get_tree().get_nodes_in_group("enemy"):
+			if enemy.currentState == enemy.State.ATTACK:
+				if instanceInRange(enemy, 150):
+					target = enemy
+					target.gettingTargeted = true
+					currentState = State.JOIN
+					break
 		
 	#Change States with key
 	if Input.is_action_just_pressed("idleState"):
@@ -74,6 +86,18 @@ func _process(delta):
 			if not mad:
 				$Sprite.modulate = Color(0, 0, 1)
 			position = position.move_toward(playerNode.position + Vector2(xDist, yDist), delta * followSpeed)
+		State.JOIN:
+			xSpeed = 0
+			ySpeed = 0
+			if target != null and is_instance_valid(target):
+				position = position.move_toward(target.position + Vector2(xDist/2, yDist/2), delta * chaseSpeed)
+				if instanceInRange(target, xDist/1.5):
+					target = null
+					currentState = State.ATTACK
+			else:
+				currentState = State.ATTACK
+
+
 
 	# looks if Person is mad and "inside" the player
 	if mad and instanceInRange(playerNode, 1):
