@@ -35,6 +35,7 @@ func instanceInRange(instance, distance):
 func _process(delta):
 	position += Vector2(xSpeed, ySpeed)
 	var randNum = 0
+	var randNum2 = 0
 	#Mad Status
 	if currentState == State.IDLE:
 		randNum = rand_range(0, 100000)
@@ -42,6 +43,12 @@ func _process(delta):
 		randNum = rand_range(0, 7000)
 	if randNum < 1:
 		mad = true
+	
+	#Randomly join Player
+	if currentState == State.IDLE:
+		randNum2 = rand_range(0, 1000000)
+	if randNum2 < 1 and not mad:
+		currentState = State.DEFEND
 		
 	if mad and not madStatusDone:
 		madStatus += delta / 5;
