@@ -44,6 +44,7 @@ func _process(delta):
 	if mad and not madStatusDone:
 		madStatus += delta / 5;
 		#Change Sprite Color
+		$Sprite.modulate = Color(1, 1, 1)
 		$Sprite.modulate = Color(madStatus, 0, 0)
 		
 	if madStatus > 1:

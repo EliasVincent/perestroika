@@ -82,7 +82,7 @@ func checkForEnemies():
 	var enemyList = []
 	var defendUnitExists = false
 	for enemy in get_tree().get_nodes_in_group("enemy"):
-		if instanceInRange(enemy, 50) and enemy.mad:
+		if instanceInRange(enemy, 50) and enemy.currentState == enemy.State.ATTACK:
 			enemyCount+=1
 			var temp = [enemy]
 			enemyList += temp
