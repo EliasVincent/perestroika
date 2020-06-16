@@ -46,8 +46,8 @@ func _physics_process(delta):
 		velocity.x = SPEED
 	
 	#JOIN ABILITY
-	if Input.is_action_just_pressed("action") and PlayerData.FAME > 0:
-		PlayerData.FAME -= 50
+	if Input.is_action_just_pressed("action") and PlayerData.FAME > 149:
+		PlayerData.FAME -= 150
 		$RecruitAudioPlayer.play()
 		var enemyList = getAllEnemiesInRadius(100)
 		for i in enemyList:
