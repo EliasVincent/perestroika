@@ -1,11 +1,12 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/tests/Main.gd" type="Script" id=1]
-[ext_resource path="res://scenes/fps_label.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/health_label.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/UI/fps_label.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/UI/health_label.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/tests/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://tilesets/streets_tileset.tres" type="TileSet" id=5]
 [ext_resource path="res://sounds/PlayerDeath.wav" type="AudioStream" id=6]
+[ext_resource path="res://scenes/UI/fame_label.tscn" type="PackedScene" id=7]
 
 [sub_resource type="Animation" id=1]
 resource_name = "player_death"
@@ -70,6 +71,12 @@ script = ExtResource( 1 )
 [node name="fps_label" parent="CanvasLayer" instance=ExtResource( 2 )]
 
 [node name="health_label" parent="CanvasLayer" instance=ExtResource( 3 )]
+
+[node name="fame_label" parent="CanvasLayer" instance=ExtResource( 7 )]
+margin_left = 17.8525
+margin_top = 23.3162
+margin_right = 164.853
+margin_bottom = 79.3162
 
 [node name="Enemies" type="Node" parent="."]
 

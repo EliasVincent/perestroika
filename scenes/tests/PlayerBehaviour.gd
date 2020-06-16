@@ -8,6 +8,12 @@ const SPEED = 100
 signal playerPosition
 var numberOfEnters = 0
 
+onready var timer = get_node("Timer")
+
+func _ready():
+	timer.set_wait_time(6)
+	timer.start()
+
 func getAllEnemiesInRadius(distance):
 	#Get all child enemies
 	var allEnemies = enemiesFolder.get_children()
@@ -40,7 +46,8 @@ func _physics_process(delta):
 		velocity.x = SPEED
 	
 	#JOIN ABILITY
-	if Input.is_action_just_pressed("action"):
+	if Input.is_action_just_pressed("action") and PlayerData.FAME > 0:
+		PlayerData.FAME -= 50
 		$RecruitAudioPlayer.play()
 		var enemyList = getAllEnemiesInRadius(100)
 		for i in enemyList:
@@ -93,3 +100,11 @@ func checkForEnemies():
 
 func _on_Main_hasDied():
 	$PlayerDeathParticles.emitting = true
+
+
+func _on_Timer_timeout():
+	for enemy in get_tree().get_nodes_in_group("enemy"):
+		if enemy.currentState == enemy.State.DEFEND:
+			PlayerData.FAME += 1
+		else:
+			pass
