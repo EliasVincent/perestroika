@@ -37,7 +37,7 @@ func _process(delta):
 	if currentState == State.IDLE:
 		randNum = rand_range(0, 200000)
 	if currentState == State.DEFEND:
-		randNum = rand_range(0, 50000)
+		randNum = rand_range(0, 10000)
 	if randNum < 1:
 		mad = true
 		
@@ -70,7 +70,8 @@ func _process(delta):
 		State.DEFEND:
 			xSpeed = 0
 			ySpeed = 0
-			$Sprite.modulate = Color(0, 0, 1)
+			if not mad:
+				$Sprite.modulate = Color(0, 0, 1)
 			position = position.move_toward(playerNode.position + Vector2(xDist, yDist), delta * followSpeed)
 
 	# looks if Person is mad and "inside" the player
