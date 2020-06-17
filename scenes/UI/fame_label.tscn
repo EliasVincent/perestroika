@@ -4,16 +4,14 @@
 [ext_resource path="res://Pixeled.ttf" type="DynamicFontData" id=2]
 
 [sub_resource type="DynamicFont" id=1]
-size = 20
+size = 8
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 2 )
 
 [node name="fame_label" type="Label"]
-margin_left = 35.0
-margin_top = 51.9999
-margin_right = 182.0
-margin_bottom = 108.0
+margin_right = 147.0
+margin_bottom = 56.0001
 custom_fonts/font = SubResource( 1 )
 script = ExtResource( 1 )
 __meta__ = {

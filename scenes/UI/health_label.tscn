@@ -4,16 +4,14 @@
 [ext_resource path="res://scripts/health_label.gd" type="Script" id=2]
 
 [sub_resource type="DynamicFont" id=1]
-size = 20
+size = 8
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
 
 [node name="health_label" type="Label"]
-margin_left = 834.28
-margin_top = 11.2161
-margin_right = 988.28
-margin_bottom = 74.2161
+margin_right = 154.0
+margin_bottom = 63.0
 custom_fonts/font = SubResource( 1 )
 script = ExtResource( 2 )
 __meta__ = {

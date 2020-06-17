@@ -1,12 +1,11 @@
 [gd_scene load_steps=2 format=2]
 
 [sub_resource type="Gradient" id=1]
-offsets = PoolRealArray( 0, 0.805085, 1 )
-colors = PoolColorArray( 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0.0509804 )
+offsets = PoolRealArray( 0, 0.0338983, 0.559322, 1 )
+colors = PoolColorArray( 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0.858479, 1, 0, 0, 0.0509804 )
 
 [node name="PlayerDeathParticles" type="CPUParticles2D"]
 position = Vector2( -0.184036, 0 )
-scale = Vector2( 4, 4 )
 amount = 120
 explosiveness = 1.0
 emission_shape = 2

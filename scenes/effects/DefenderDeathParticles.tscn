@@ -1,13 +1,13 @@
 [gd_scene load_steps=2 format=2]
 
 [sub_resource type="Gradient" id=1]
-offsets = PoolRealArray( 0, 0.669492, 1 )
+offsets = PoolRealArray( 0, 0.245763, 1 )
 colors = PoolColorArray( 0.0693359, 0, 1, 1, 0.116211, 0, 1, 1, 1, 1, 1, 0 )
 
 [node name="DefenderDeathParticles" type="CPUParticles2D"]
-scale = Vector2( 8, 8 )
 emitting = false
 amount = 60
+lifetime = 0.5
 one_shot = true
 speed_scale = 1.5
 explosiveness = 1.0

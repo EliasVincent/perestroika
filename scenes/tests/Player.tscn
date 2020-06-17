@@ -59,7 +59,7 @@ one_shot = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 5 )
-frame = 2
+frame = 1
 speed_scale = 0.75
 playing = true
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
