@@ -4,6 +4,7 @@ onready var playerNode = get_node("/root/Main/Player")
 
 var xSpeed = 0
 var ySpeed = 0
+var moveUpdate = 0.5
 
 var health = 100
 var mad = false
@@ -35,9 +36,15 @@ func instanceInRange(instance, distance):
 		if instance.position.y > position.y - distance and instance.position.y < position.y + distance:
 			return true
 	return false
+	
+func updateMovewment():
+	xSpeed = rand_range(-0.2, 0.2)
+	ySpeed = rand_range(-0.2, 0.2)
+	moveUpdate = rand_range(0.4,0.6)
 
 func _process(delta):
 	position += Vector2(xSpeed, ySpeed)
+	
 	var randNum = 2
 	var randNum2 = 2
 	#Mad Status
@@ -84,8 +91,9 @@ func _process(delta):
 	
 	match currentState:
 		State.IDLE:
-			xSpeed = rand_range(-1, 1)
-			ySpeed = rand_range(-1, 1)
+			moveUpdate -= delta
+			if (moveUpdate < 0):
+				updateMovewment()
 		State.ATTACK:	
 			xSpeed = 0
 			ySpeed = 0
@@ -108,10 +116,13 @@ func _process(delta):
 			else:
 				currentState = State.ATTACK
 		State.LOYAL:
-			xSpeed = rand_range(-1.5, 1.5)
-			ySpeed = rand_range(-1.5, 1.5)
+			moveUpdate -= delta
+			if (moveUpdate < 0):
+				updateMovewment()
 			$AnimatedSprite.modulate = Color(1, 1, 0.1, 1)
 		State.LOYALDEFEND:
+			xSpeed = 0
+			ySpeed = 0
 			$AnimatedSprite.modulate = Color(1, 1, 0.1, 1)
 			position = position.move_toward(playerNode.position + Vector2(xDist, yDist), delta * followSpeed)
 		State.DYING:
