@@ -6,7 +6,7 @@
 [ext_resource path="res://scenes/effects/PersonDeathParticles.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/effects/DefenderDeathParticles.tscn" type="PackedScene" id=5]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "DefenderDeath"
 length = 0.5
 tracks/0/type = "value"
@@ -48,8 +48,7 @@ tracks/2/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=1]
-resource_name = "PersonDeath"
+[sub_resource type="Animation" id=2]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("PersonDeathParticles:emitting")
@@ -94,7 +93,7 @@ tracks/2/keys = {
 "enemy",
 ]]
 position = Vector2( 417.069, 207.374 )
-scale = Vector2( 0.1, 0.1 )
+scale = Vector2( 0.25, 0.25 )
 collision_layer = 0
 collision_mask = 0
 script = ExtResource( 2 )
@@ -110,8 +109,8 @@ stream = ExtResource( 3 )
 volume_db = -11.7
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/DefenderDeath = SubResource( 2 )
-anims/PersonDeath = SubResource( 1 )
+anims/DefenderDeath = SubResource( 1 )
+anims/PersonDeath = SubResource( 2 )
 
 [node name="PersonDeathParticles" parent="." instance=ExtResource( 4 )]
 
