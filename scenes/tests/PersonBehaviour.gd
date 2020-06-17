@@ -128,3 +128,6 @@ func _process(delta):
 
 func person_death():
 	$AnimationPlayer.play("PersonDeath")
+
+func defender_death():
+	$AnimationPlayer.play("DefenderDeath")

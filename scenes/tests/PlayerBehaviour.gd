@@ -92,7 +92,8 @@ func battle(enemyCount, enemyList):
 			#Delete defending unit
 			for enemy in get_tree().get_nodes_in_group("enemy"):
 				if enemy.currentState == enemy.State.DEFEND:
-					enemy.queue_free()
+					enemy.currentState = enemy.State.DYING
+					enemy.defender_death()
 					enemyCount-=1
 					break
 				elif enemy.currentState == enemy.State.LOYALDEFEND:
@@ -102,7 +103,8 @@ func battle(enemyCount, enemyList):
 		else:
 			#Delete enemy in range
 			for enemy in enemyList:
-				enemy.queue_free()
+				enemy.currentState = enemy.State.DYING
+				enemy.person_death()
 				enemyCount-=1
 				break
 		
