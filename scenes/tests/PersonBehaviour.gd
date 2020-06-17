@@ -57,8 +57,8 @@ func _process(delta):
 	if mad and not madStatusDone:
 		madStatus += delta / 5;
 		#Change Sprite Color
-		$Sprite.modulate = Color(1, 1, 1)
-		$Sprite.modulate = Color(madStatus, 0, 0)
+		$AnimatedSprite.modulate = Color(1, 1, 1, 1)
+		$AnimatedSprite.modulate = Color(madStatus, 0, 0, 1)
 		
 	if madStatus > 1:
 		$TurnsEvilAudioPlayer.play()
@@ -95,7 +95,7 @@ func _process(delta):
 			xSpeed = 0
 			ySpeed = 0
 			if not mad:
-				$Sprite.modulate = Color(0, 0, 1)
+				$AnimatedSprite.modulate = Color(0, 0, 1, 1)
 			position = position.move_toward(playerNode.position + Vector2(xDist, yDist), delta * followSpeed)
 		State.JOIN:
 			xSpeed = 0
@@ -110,9 +110,9 @@ func _process(delta):
 		State.LOYAL:
 			xSpeed = rand_range(-1.5, 1.5)
 			ySpeed = rand_range(-1.5, 1.5)
-			$Sprite.modulate = Color(1, 1, 0.1)
+			$AnimatedSprite.modulate = Color(1, 1, 0.1, 1)
 		State.LOYALDEFEND:
-			$Sprite.modulate = Color(1, 1, 0.1)
+			$AnimatedSprite.modulate = Color(1, 1, 0.1, 1)
 			position = position.move_toward(playerNode.position + Vector2(xDist, yDist), delta * followSpeed)
 		State.DYING:
 			pass
