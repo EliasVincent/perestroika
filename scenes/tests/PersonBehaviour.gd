@@ -111,3 +111,7 @@ func _process(delta):
 		PlayerData.Health -= 10
 		PlayerData.play_hit_by_enemy_audio()
 		queue_free()
+
+
+func person_death():
+	$AnimationPlayer.play("PersonDeath")
