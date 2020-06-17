@@ -59,8 +59,13 @@ func _physics_process(delta):
 					i.mad = true
 					
 	#CHEER ABILITY
-	if Input.is_action_just_pressed("cheer"):
-		print("cheer pressed")
+	if Input.is_action_just_pressed("cheer") and PlayerData.FAME > 49:
+		PlayerData.FAME -= 50
+		var enemyList = getAllEnemiesInRadius(100)
+		for i in enemyList:
+			if i.currentState == i.State.DEFEND and i.mad:
+					i.mad = false
+					i.madStatus = 0
 	
 	# CHEATS, DELETE BEFORE RELEASE
 	if Input.is_action_just_pressed("fame-cheat"):

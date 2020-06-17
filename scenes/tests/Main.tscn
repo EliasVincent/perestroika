@@ -9,14 +9,13 @@
 [ext_resource path="res://scenes/UI/fame_label.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Pixeled.ttf" type="DynamicFontData" id=8]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 13
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 8 )
 
-[sub_resource type="Animation" id=1]
-resource_name = "player_death"
+[sub_resource type="Animation" id=2]
 length = 3.0
 tracks/0/type = "method"
 tracks/0/path = NodePath(".")
@@ -125,7 +124,7 @@ margin_left = 426.631
 margin_top = 20.7076
 margin_right = 816.631
 margin_bottom = 125.708
-custom_fonts/normal_font = SubResource( 2 )
+custom_fonts/normal_font = SubResource( 1 )
 text = "Q JOIN		 |		 E CHEER"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -153,7 +152,7 @@ tile_data = PoolIntArray( -458766, 3, 0, -458765, 3, 0, -458764, 3, 0, -458763, 
 modulate = Color( 1, 1, 1, 0 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/player_death = SubResource( 1 )
+anims/player_death = SubResource( 2 )
 
 [node name="PlayerDeathAudioPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
