@@ -40,7 +40,7 @@ func _process(delta):
 	if currentState == State.IDLE:
 		randNum = rand_range(0, 100000)
 	if currentState == State.DEFEND:
-		randNum = rand_range(0, 7000)
+		randNum = rand_range(0, 3000)
 	if randNum < 1:
 		mad = true
 	
