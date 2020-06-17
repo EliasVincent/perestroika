@@ -8,6 +8,10 @@ var currentRadius = 100
 const SPEED = 100
 signal playerPosition
 var numberOfEnters = 0
+var currentDefenderCount = 0
+
+var checkDefenderCountTimer = 5
+var checkDefenderCountTimerSave = checkDefenderCountTimer
 
 onready var timer = get_node("Timer")
 
@@ -45,6 +49,11 @@ func _physics_process(delta):
 		velocity.x = -SPEED
 	if Input.is_action_pressed("right"):
 		velocity.x = SPEED
+		
+	checkDefenderCountTimer -= delta
+	if checkDefenderCountTimer < 0:
+		checkDefenderCountTimer = checkDefenderCountTimerSave
+		countDefenders()
 	
 	#JOIN ABILITY
 	if Input.is_action_just_pressed("join") and PlayerData.FAME > 69:
@@ -84,6 +93,33 @@ func _physics_process(delta):
 	velocity.y = lerp(velocity.y,0,0.3)
 	
 	emit_signal("playerPosition")
+
+#Count Defenders
+func countDefenders():
+	currentDefenderCount = 0
+	for enemy in get_tree().get_nodes_in_group("enemy"):
+		if enemy.currentState == enemy.State.DEFEND or enemy.currentState == enemy.State.LOYALDEFEND:
+			currentDefenderCount += 1
+	if currentDefenderCount < 20:
+		for enemy in get_tree().get_nodes_in_group("enemy"):
+			if enemy.currentState == enemy.State.DEFEND or enemy.currentState == enemy.State.LOYALDEFEND:
+				enemy.xDist = rand_range(-50, 50)
+				enemy.yDist = rand_range(-50, 50)
+	elif currentDefenderCount < 40:
+		for enemy in get_tree().get_nodes_in_group("enemy"):
+			if enemy.currentState == enemy.State.DEFEND or enemy.currentState == enemy.State.LOYALDEFEND:
+				enemy.xDist = rand_range(-75, 75)
+				enemy.yDist = rand_range(-75, 75)
+	elif currentDefenderCount < 60:
+		for enemy in get_tree().get_nodes_in_group("enemy"):
+			if enemy.currentState == enemy.State.DEFEND or enemy.currentState == enemy.State.LOYALDEFEND:
+				enemy.xDist = rand_range(-100, 100)
+				enemy.yDist = rand_range(-100, 100)
+	else:
+		for enemy in get_tree().get_nodes_in_group("enemy"):
+			if enemy.currentState == enemy.State.DEFEND or enemy.currentState == enemy.State.LOYALDEFEND:
+				enemy.xDist = rand_range(-125, 125)
+				enemy.yDist = rand_range(-125, 125)
 
 func battle(enemyCount, enemyList):
 	for i in enemyCount:

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Street_Blank.png-24c0d086dfdce7ff08da3564cde80962.stex"
+path="res://.import/Sprite-0001.png-2c4ed6717789ecb669895a778cff3a77.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Streets/Street_Blank.png"
-dest_files=[ "res://.import/Street_Blank.png-24c0d086dfdce7ff08da3564cde80962.stex" ]
+source_file="res://sprites/Sprite-0001.png"
+dest_files=[ "res://.import/Sprite-0001.png-2c4ed6717789ecb669895a778cff3a77.stex" ]
 
 [params]
 
