@@ -2,10 +2,10 @@
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.669492, 1 )
-colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
+colors = PoolColorArray( 1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 0 )
 
 [node name="PersonDeathParticles" type="CPUParticles2D"]
-scale = Vector2( 5, 5 )
+scale = Vector2( 8, 8 )
 emitting = false
 amount = 60
 one_shot = true

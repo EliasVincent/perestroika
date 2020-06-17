@@ -17,7 +17,7 @@ var yDist = 0
 var target = null
 var gettingTargeted = false
 
-enum State {IDLE, ATTACK, DEFEND, JOIN, LEADER, LOYAL, LOYALDEFEND}
+enum State {IDLE, ATTACK, DEFEND, JOIN, LEADER, LOYAL, LOYALDEFEND, DYING}
 var currentState = State.IDLE
 
 # Called when the node enters the scene tree for the first time.
@@ -114,12 +114,16 @@ func _process(delta):
 		State.LOYALDEFEND:
 			$Sprite.modulate = Color(1, 1, 0.1)
 			position = position.move_toward(playerNode.position + Vector2(xDist, yDist), delta * followSpeed)
+		State.DYING:
+			pass
 
 	# looks if Person is mad and "inside" the player
 	if mad and instanceInRange(playerNode, 1):
-		PlayerData.Health -= 10
-		PlayerData.play_hit_by_enemy_audio()
-		queue_free()
+		if not currentState == State.DYING:
+			PlayerData.Health -= 10
+			PlayerData.play_hit_by_enemy_audio()
+			currentState = State.DYING
+			person_death()
 
 
 func person_death():
