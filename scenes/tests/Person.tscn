@@ -93,7 +93,7 @@ tracks/2/keys = {
 "enemy",
 ]]
 position = Vector2( 417.069, 207.374 )
-scale = Vector2( 0.1, 0.1 )
+scale = Vector2( 0.25, 0.25 )
 collision_layer = 0
 collision_mask = 0
 script = ExtResource( 2 )
