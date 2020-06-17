@@ -49,7 +49,7 @@ func _process(delta):
 	var randNum2 = 2
 	#Mad Status
 	if currentState == State.IDLE:
-		randNum = rand_range(0, 100000)
+		randNum = rand_range(0, 50000)
 	if currentState == State.DEFEND:
 		randNum = rand_range(0, 3000)
 	if randNum < 1:
@@ -57,7 +57,7 @@ func _process(delta):
 	
 	#Randomly join Player
 	if currentState == State.IDLE:
-		randNum2 = rand_range(0, 1000000)
+		randNum2 = rand_range(0, 200000)
 	if randNum2 < 1 and not mad:
 		currentState = State.DEFEND
 		

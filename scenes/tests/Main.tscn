@@ -157,9 +157,6 @@ tile_data = PoolIntArray( -458766, 3, 0, -458765, 3, 0, -458764, 3, 0, -458763, 
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
 
-[node name="AnimatedSprite" parent="Player" index="5"]
-frame = 0
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/player_death = SubResource( 2 )
 
