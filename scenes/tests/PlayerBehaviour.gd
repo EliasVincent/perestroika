@@ -52,7 +52,9 @@ func _physics_process(delta):
 		$RecruitAudioPlayer.play()
 		var enemyList = getAllEnemiesInRadius(currentRadius)
 		for i in enemyList:
-			if i.currentState != i.State.DEFEND and not i.mad:
+			if i.currentState == i.State.LOYAL:
+				i.currentState = i.State.LOYALDEFEND
+			elif i.currentState != i.State.DEFEND and not i.mad:
 				var randNum = rand_range(0,9)
 				if randNum < 3:
 					i.currentState = i.State.DEFEND
@@ -90,6 +92,10 @@ func battle(enemyCount, enemyList):
 			#Delete defending unit
 			for enemy in get_tree().get_nodes_in_group("enemy"):
 				if enemy.currentState == enemy.State.DEFEND:
+					enemy.queue_free()
+					enemyCount-=1
+					break
+				elif enemy.currentState == enemy.State.LOYALDEFEND:
 					enemy.queue_free()
 					enemyCount-=1
 					break

@@ -17,13 +17,17 @@ var yDist = 0
 var target = null
 var gettingTargeted = false
 
-enum State {IDLE, ATTACK, DEFEND, JOIN, LEADER}
+enum State {IDLE, ATTACK, DEFEND, JOIN, LEADER, LOYAL, LOYALDEFEND}
 var currentState = State.IDLE
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	xDist = rand_range(-50, 50)
 	yDist = rand_range(-50, 50)
+	
+	var randNum = rand_range(0, 75)
+	if randNum < 1:
+		currentState = State.LOYAL
 	
 func instanceInRange(instance, distance):
 	#Check if instance is in range of given distance to player
@@ -34,8 +38,8 @@ func instanceInRange(instance, distance):
 
 func _process(delta):
 	position += Vector2(xSpeed, ySpeed)
-	var randNum = 0
-	var randNum2 = 0
+	var randNum = 2
+	var randNum2 = 2
 	#Mad Status
 	if currentState == State.IDLE:
 		randNum = rand_range(0, 100000)
@@ -103,8 +107,13 @@ func _process(delta):
 					currentState = State.ATTACK
 			else:
 				currentState = State.ATTACK
-
-
+		State.LOYAL:
+			xSpeed = rand_range(-1.5, 1.5)
+			ySpeed = rand_range(-1.5, 1.5)
+			$Sprite.modulate = Color(1, 1, 0.1)
+		State.LOYALDEFEND:
+			$Sprite.modulate = Color(1, 1, 0.1)
+			position = position.move_toward(playerNode.position + Vector2(xDist, yDist), delta * followSpeed)
 
 	# looks if Person is mad and "inside" the player
 	if mad and instanceInRange(playerNode, 1):
