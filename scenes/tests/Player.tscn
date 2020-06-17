@@ -36,10 +36,9 @@ disabled = true
 [node name="RecruitAudioPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 
+[node name="Timer" type="Timer" parent="."]
+
 [node name="PlayerDeathParticles" parent="." instance=ExtResource( 4 )]
 emitting = false
 one_shot = true
-scale_amount = 5.0
-
-[node name="Timer" type="Timer" parent="."]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

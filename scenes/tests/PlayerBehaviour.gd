@@ -46,7 +46,7 @@ func _physics_process(delta):
 		velocity.x = SPEED
 	
 	#JOIN ABILITY
-	if Input.is_action_just_pressed("action") and PlayerData.FAME > 149:
+	if Input.is_action_just_pressed("join") and PlayerData.FAME > 149:
 		PlayerData.FAME -= 150
 		$RecruitAudioPlayer.play()
 		var enemyList = getAllEnemiesInRadius(100)
@@ -57,6 +57,10 @@ func _physics_process(delta):
 					i.currentState = i.State.DEFEND
 				elif randNum < 4:
 					i.mad = true
+					
+	#CHEER ABILITY
+	if Input.is_action_just_pressed("cheer"):
+		print("cheer pressed")
 	
 	# CHEATS, DELETE BEFORE RELEASE
 	if Input.is_action_just_pressed("fame-cheat"):
