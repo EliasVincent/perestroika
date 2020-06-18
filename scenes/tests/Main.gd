@@ -43,7 +43,7 @@ func _ready():
 			grabbedInstance.position = Vector2(rand_range(-400, 1000), rand_range(-400, 1000))
 		enemiesFolder.add_child(grabbedInstance)
 		
-	var numOfTowers = 500
+	var numOfTowers = 3
 	for i in numOfTowers:
 		var spawnedTower = tower.instance()
 		spawnedTower.position = Vector2(rand_range(0, 900), rand_range(0, 900))
