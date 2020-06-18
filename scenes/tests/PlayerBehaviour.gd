@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 onready var enemiesFolder = get_node("/root/Main/Enemies")
+onready var camera = get_node("Camera2D")
 
 var velocity = Vector2(0,0)
 var hp = 100
@@ -104,24 +105,29 @@ func countDefenders():
 	for enemy in get_tree().get_nodes_in_group("enemy"):
 		if enemy.currentState == enemy.State.DEFEND or enemy.currentState == enemy.State.LOYALDEFEND:
 			currentDefenderCount += 1
+			
 	if currentDefenderCount < 20:
 		for enemy in get_tree().get_nodes_in_group("enemy"):
 			if enemy.currentState == enemy.State.DEFEND or enemy.currentState == enemy.State.LOYALDEFEND:
+				camera.zoom = Vector2(0.75, 0.75)
 				enemy.xDist = rand_range(-50, 50)
 				enemy.yDist = rand_range(-50, 50)
 	elif currentDefenderCount < 40:
 		for enemy in get_tree().get_nodes_in_group("enemy"):
 			if enemy.currentState == enemy.State.DEFEND or enemy.currentState == enemy.State.LOYALDEFEND:
+				camera.zoom = Vector2(1, 1)
 				enemy.xDist = rand_range(-75, 75)
 				enemy.yDist = rand_range(-75, 75)
 	elif currentDefenderCount < 60:
 		for enemy in get_tree().get_nodes_in_group("enemy"):
 			if enemy.currentState == enemy.State.DEFEND or enemy.currentState == enemy.State.LOYALDEFEND:
+				camera.zoom = Vector2(1.25, 1.25)
 				enemy.xDist = rand_range(-100, 100)
 				enemy.yDist = rand_range(-100, 100)
 	else:
 		for enemy in get_tree().get_nodes_in_group("enemy"):
 			if enemy.currentState == enemy.State.DEFEND or enemy.currentState == enemy.State.LOYALDEFEND:
+				camera.zoom = Vector2(1.5, 1.5)
 				enemy.xDist = rand_range(-125, 125)
 				enemy.yDist = rand_range(-125, 125)
 
