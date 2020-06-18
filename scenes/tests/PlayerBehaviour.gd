@@ -2,11 +2,13 @@ extends KinematicBody2D
 
 onready var enemiesFolder = get_node("/root/Main/Enemies")
 onready var camera = get_node("Camera2D")
+onready var radCircle = get_node("RedCircle")
 
 var velocity = Vector2(0,0)
 var hp = 100
-var currentRadius = 100
-const SPEED = 100
+var currentRadius = 50
+var SPEED = 100
+var speedSave = SPEED
 signal playerPosition
 var numberOfEnters = 0
 var currentDefenderCount = 0
@@ -15,7 +17,7 @@ var checkDefenderCountTimer = 5
 var checkDefenderCountTimerSave = checkDefenderCountTimer
 
 var JoinCost = 100
-var CheerCost = 40
+var CheerCost = 15
 var joinCostSave = JoinCost
 var cheerCostSave = CheerCost
 
@@ -113,8 +115,11 @@ func countDefenders():
 			if enemy.currentState == enemy.State.DEFEND or enemy.currentState == enemy.State.LOYALDEFEND:
 				camera.zoom = Vector2(0.75, 0.75)
 				currentRadius = 100
+				SPEED = speedSave
 				JoinCost = joinCostSave
 				CheerCost = cheerCostSave
+				radCircle.scale.x = 1
+				radCircle.scale.y = 1
 				enemy.xDist = rand_range(-50, 50)
 				enemy.yDist = rand_range(-50, 50)
 	elif currentDefenderCount < 40:
@@ -122,8 +127,11 @@ func countDefenders():
 			if enemy.currentState == enemy.State.DEFEND or enemy.currentState == enemy.State.LOYALDEFEND:
 				camera.zoom = Vector2(1, 1)
 				currentRadius = 150
-				JoinCost = joinCostSave * 2
-				CheerCost = cheerCostSave * 2
+				SPEED = speedSave / 1.5
+				JoinCost = joinCostSave * 1.5
+				CheerCost = cheerCostSave * 1.5
+				radCircle.scale.x = 2
+				radCircle.scale.y = 2
 				enemy.xDist = rand_range(-75, 75)
 				enemy.yDist = rand_range(-75, 75)
 	elif currentDefenderCount < 60:
@@ -131,8 +139,11 @@ func countDefenders():
 			if enemy.currentState == enemy.State.DEFEND or enemy.currentState == enemy.State.LOYALDEFEND:
 				camera.zoom = Vector2(1.25, 1.25)
 				currentRadius = 200
-				JoinCost = joinCostSave * 4
-				CheerCost = cheerCostSave * 4
+				SPEED = speedSave / 2
+				JoinCost = joinCostSave * 3
+				CheerCost = cheerCostSave * 3
+				radCircle.scale.x = 4
+				radCircle.scale.y = 4
 				enemy.xDist = rand_range(-100, 100)
 				enemy.yDist = rand_range(-100, 100)
 	else:
@@ -140,8 +151,11 @@ func countDefenders():
 			if enemy.currentState == enemy.State.DEFEND or enemy.currentState == enemy.State.LOYALDEFEND:
 				camera.zoom = Vector2(1.5, 1.5)
 				currentRadius = 300
-				JoinCost = joinCostSave * 8
-				CheerCost = cheerCostSave * 8
+				SPEED = speedSave / 4
+				JoinCost = joinCostSave * 5
+				CheerCost = cheerCostSave * 5
+				radCircle.scale.x = 8
+				radCircle.scale.y = 8
 				enemy.xDist = rand_range(-125, 125)
 				enemy.yDist = rand_range(-125, 125)
 

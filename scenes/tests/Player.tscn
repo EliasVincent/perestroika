@@ -5,9 +5,7 @@
 [ext_resource path="res://sounds/Recruit_LetsGo.wav" type="AudioStream" id=3]
 [ext_resource path="res://scenes/effects/PlayerDeathParticles.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/objects/FamePerSecondTimer.tscn" type="PackedScene" id=5]
-
-[sub_resource type="CircleShape2D" id=1]
-radius = 32.0
+[ext_resource path="res://sprites/redCircle.png" type="Texture" id=6]
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 1 )
@@ -44,10 +42,6 @@ __meta__ = {
 current = true
 zoom = Vector2( 0.75, 0.75 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
-disabled = true
-
 [node name="RecruitAudioPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 
@@ -62,4 +56,8 @@ frames = SubResource( 5 )
 frame = 2
 speed_scale = 0.75
 playing = true
+
+[node name="RedCircle" type="Sprite" parent="."]
+texture = ExtResource( 6 )
+offset = Vector2( -3, 0 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
