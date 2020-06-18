@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Join_v2.wav-620559d1f3ea2eefd90a6ac75df94c53.sample"
+
+[deps]
+
+source_file="res://sounds/Join_v2.wav"
+dest_files=[ "res://.import/Join_v2.wav-620559d1f3ea2eefd90a6ac75df94c53.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
