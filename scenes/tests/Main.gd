@@ -2,6 +2,7 @@ extends Node2D
 
 var myBody = preload("res://scenes/tests/Person.tscn")
 var myPerson = preload("res://scenes/tests/Player.tscn")
+var tower = preload("res://scenes/tests/Tower.tscn")
 onready var enemiesFolder = get_node("/root/Main/Enemies")
 
 var dict := {}
@@ -40,8 +41,14 @@ func _ready():
 		while grabbedInstance.position.x < xPos3 + xlength3 and grabbedInstance.position.x > xPos3 - xlength3 and grabbedInstance.position.y < yPos3 + ylength3 and grabbedInstance.position.y > yPos3 - ylength3:
 			grabbedInstance.position = Vector2(rand_range(-400, 1000), rand_range(-400, 1000))
 		enemiesFolder.add_child(grabbedInstance)
+		
+	var numOfTowers = 500
+	for i in numOfTowers:
+		var spawnedTower = tower.instance()
+		spawnedTower.position = Vector2(rand_range(0, 900), rand_range(0, 900))
+		print(spawnedTower.position)
 	
-func _process(delta):			
+func _process(delta):		
 	if PlayerData.Health <= 0:
 		$AnimationPlayer.play("player_death")
 

@@ -134,4 +134,5 @@ anims/PersonDeath = SubResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 6 )
+frame = 1
 playing = true
