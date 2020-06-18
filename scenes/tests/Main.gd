@@ -55,7 +55,9 @@ func _ready():
 		var randNum = rand_range(7, 30)
 		for i in randNum:
 			var grabbedInstance = myBody.instance()
-			grabbedInstance.position = Vector2(tower.position.x, tower.position.y) + Vector2(rand_range(-100, 100), rand_range(-100, 100))
+			grabbedInstance.position = tower.position + Vector2(rand_range(-100, 100), rand_range(-100, 100))
+			grabbedInstance.mad = true
+			enemiesFolder.add_child(grabbedInstance)
 	
 func _process(delta):
 	if PlayerData.Health <= 0:
