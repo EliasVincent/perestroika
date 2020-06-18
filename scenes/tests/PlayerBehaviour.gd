@@ -16,7 +16,7 @@ var checkDefenderCountTimerSave = checkDefenderCountTimer
 onready var timer = get_node("Timer")
 
 func _ready():
-	timer.set_wait_time(6)
+	timer.set_wait_time(3)
 	timer.start()
 	$AnimatedSprite.modulate = Color(0.1, 1, 0.2, 1)
 

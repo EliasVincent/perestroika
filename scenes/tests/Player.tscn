@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://sprites/Sprite-0002-Sheet.png" type="Texture" id=1]
 [ext_resource path="res://scenes/tests/PlayerBehaviour.gd" type="Script" id=2]
 [ext_resource path="res://sounds/Recruit_LetsGo.wav" type="AudioStream" id=3]
 [ext_resource path="res://scenes/effects/PlayerDeathParticles.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/objects/FamePerSecondTimer.tscn" type="PackedScene" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 32.0
@@ -51,7 +52,7 @@ disabled = true
 [node name="RecruitAudioPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" parent="." instance=ExtResource( 5 )]
 
 [node name="PlayerDeathParticles" parent="." instance=ExtResource( 4 )]
 emitting = false
@@ -59,7 +60,7 @@ one_shot = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 5 )
-frame = 1
+frame = 2
 speed_scale = 0.75
 playing = true
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
