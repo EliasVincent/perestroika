@@ -4,6 +4,7 @@ var myBody = preload("res://scenes/tests/Person.tscn")
 var myPerson = preload("res://scenes/tests/Player.tscn")
 var tower = preload("res://scenes/tests/Tower.tscn")
 onready var enemiesFolder = get_node("/root/Main/Enemies")
+onready var towersFolder = get_node("/root/Main/Towers")
 
 var dict := {}
 
@@ -47,6 +48,7 @@ func _ready():
 		var spawnedTower = tower.instance()
 		spawnedTower.position = Vector2(rand_range(0, 900), rand_range(0, 900))
 		print(spawnedTower.position)
+		towersFolder.add_child(spawnedTower)
 	
 func _process(delta):		
 	if PlayerData.Health <= 0:
