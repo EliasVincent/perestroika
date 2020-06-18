@@ -13,6 +13,9 @@ var currentDefenderCount = 0
 var checkDefenderCountTimer = 5
 var checkDefenderCountTimerSave = checkDefenderCountTimer
 
+var JoinCost = 100
+var CheerCost = 40
+
 onready var timer = get_node("Timer")
 
 func _ready():
@@ -57,8 +60,8 @@ func _physics_process(delta):
 		countDefenders()
 	
 	#JOIN ABILITY
-	if Input.is_action_just_pressed("join") and PlayerData.FAME > 69:
-		PlayerData.FAME -= 70
+	if Input.is_action_just_pressed("join") and PlayerData.FAME > 99:
+		PlayerData.FAME -= JoinCost
 		$RecruitAudioPlayer.play()
 		var enemyList = getAllEnemiesInRadius(currentRadius)
 		for i in enemyList:
@@ -72,8 +75,8 @@ func _physics_process(delta):
 					i.mad = true
 					
 	#CHEER ABILITY
-	if Input.is_action_just_pressed("cheer") and PlayerData.FAME > 19:
-		PlayerData.FAME -= 20
+	if Input.is_action_just_pressed("cheer") and PlayerData.FAME > 39:
+		PlayerData.FAME -= CheerCost
 		var enemyList = getAllEnemiesInRadius(currentRadius)
 		for i in enemyList:
 			if i.currentState == i.State.DEFEND and i.mad:
