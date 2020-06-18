@@ -30,7 +30,15 @@ func _ready():
 	var ylength3 = rand_range(0, 100)
 	var xPos3 = rand_range(0, 900)
 	var yPos3 = rand_range(0, 900)
+	
+	#Tower Spawn
+	var numOfTowers = 3
+	for i in numOfTowers:
+		var spawnedTower = tower.instance()
+		spawnedTower.position = Vector2(rand_range(0, 900), rand_range(0, 900))
+		towersFolder.add_child(spawnedTower)
 
+	#Enemy Spawn
 	var numOfSpawns = 1500
 	for i in numOfSpawns:
 		var grabbedInstance = myBody.instance()
@@ -43,14 +51,13 @@ func _ready():
 			grabbedInstance.position = Vector2(rand_range(-400, 1000), rand_range(-400, 1000))
 		enemiesFolder.add_child(grabbedInstance)
 		
-	var numOfTowers = 3
-	for i in numOfTowers:
-		var spawnedTower = tower.instance()
-		spawnedTower.position = Vector2(rand_range(0, 900), rand_range(0, 900))
-		print(spawnedTower.position)
-		towersFolder.add_child(spawnedTower)
+	for tower in get_tree().get_nodes_in_group("towers"):
+		var randNum = rand_range(7, 30)
+		for i in randNum:
+			var grabbedInstance = myBody.instance()
+			grabbedInstance.position = Vector2(tower.position.x, tower.position.y) + Vector2(rand_range(-100, 100), rand_range(-100, 100))
 	
-func _process(delta):		
+func _process(delta):
 	if PlayerData.Health <= 0:
 		$AnimationPlayer.play("player_death")
 

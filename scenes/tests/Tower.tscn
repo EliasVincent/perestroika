@@ -23,7 +23,9 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="Node2D" type="StaticBody2D"]
+[node name="Node2D" type="StaticBody2D" groups=[
+"towers",
+]]
 z_index = 2
 script = ExtResource( 2 )
 

@@ -150,7 +150,9 @@ __meta__ = {
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
 
-[node name="Towers" type="Node" parent="."]
+[node name="Towers" type="Node" parent="." groups=[
+"towers",
+]]
 
 [node name="TileMap" type="TileMap" parent="."]
 z_index = -1
