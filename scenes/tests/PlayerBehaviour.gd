@@ -16,6 +16,8 @@ var checkDefenderCountTimerSave = checkDefenderCountTimer
 
 var JoinCost = 100
 var CheerCost = 40
+var joinCostSave = JoinCost
+var cheerCostSave = CheerCost
 
 onready var timer = get_node("Timer")
 
@@ -61,7 +63,7 @@ func _physics_process(delta):
 		countDefenders()
 	
 	#JOIN ABILITY
-	if Input.is_action_just_pressed("join") and PlayerData.FAME > 99:
+	if Input.is_action_just_pressed("join") and PlayerData.FAME >= JoinCost:
 		PlayerData.FAME -= JoinCost
 		$RecruitAudioPlayer.play()
 		var enemyList = getAllEnemiesInRadius(currentRadius)
@@ -76,7 +78,7 @@ func _physics_process(delta):
 					i.mad = true
 					
 	#CHEER ABILITY
-	if Input.is_action_just_pressed("cheer") and PlayerData.FAME > 39:
+	if Input.is_action_just_pressed("cheer") and PlayerData.FAME >= CheerCost:
 		PlayerData.FAME -= CheerCost
 		var enemyList = getAllEnemiesInRadius(currentRadius)
 		for i in enemyList:
@@ -111,6 +113,8 @@ func countDefenders():
 			if enemy.currentState == enemy.State.DEFEND or enemy.currentState == enemy.State.LOYALDEFEND:
 				camera.zoom = Vector2(0.75, 0.75)
 				currentRadius = 100
+				JoinCost = joinCostSave
+				CheerCost = cheerCostSave
 				enemy.xDist = rand_range(-50, 50)
 				enemy.yDist = rand_range(-50, 50)
 	elif currentDefenderCount < 40:
@@ -118,6 +122,8 @@ func countDefenders():
 			if enemy.currentState == enemy.State.DEFEND or enemy.currentState == enemy.State.LOYALDEFEND:
 				camera.zoom = Vector2(1, 1)
 				currentRadius = 150
+				JoinCost = joinCostSave * 2
+				CheerCost = cheerCostSave * 2
 				enemy.xDist = rand_range(-75, 75)
 				enemy.yDist = rand_range(-75, 75)
 	elif currentDefenderCount < 60:
@@ -125,6 +131,8 @@ func countDefenders():
 			if enemy.currentState == enemy.State.DEFEND or enemy.currentState == enemy.State.LOYALDEFEND:
 				camera.zoom = Vector2(1.25, 1.25)
 				currentRadius = 200
+				JoinCost = joinCostSave * 4
+				CheerCost = cheerCostSave * 4
 				enemy.xDist = rand_range(-100, 100)
 				enemy.yDist = rand_range(-100, 100)
 	else:
@@ -132,6 +140,8 @@ func countDefenders():
 			if enemy.currentState == enemy.State.DEFEND or enemy.currentState == enemy.State.LOYALDEFEND:
 				camera.zoom = Vector2(1.5, 1.5)
 				currentRadius = 300
+				JoinCost = joinCostSave * 8
+				CheerCost = cheerCostSave * 8
 				enemy.xDist = rand_range(-125, 125)
 				enemy.yDist = rand_range(-125, 125)
 
