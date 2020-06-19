@@ -18,6 +18,9 @@ var yDist = 0
 var target = null
 var gettingTargeted = false
 
+var updateTeam = 10
+var updateTeamSave = updateTeam
+
 enum State {IDLE, ATTACK, DEFEND, JOIN, LEADER, LOYAL, LOYALDEFEND, DYING}
 var currentState = State.IDLE
 
@@ -30,17 +33,29 @@ func _ready():
 	if randNum < 1:
 		currentState = State.LOYAL
 	
-func instanceInRange(instance, distance):
+#func instanceInRange(instance, distance):
 	#Check if instance is in range of given distance to player
-	if instance.position.x > position.x - distance and instance.position.x < position.x + distance:
-		if instance.position.y > position.y - distance and instance.position.y < position.y + distance:
-			return true
-	return false
+	#if instance.position.x > position.x - distance and instance.position.x < position.x + distance:
+		#if instance.position.y > position.y - distance and instance.position.y < position.y + distance:
+			#return true
+	#return false
 	
 func updateMovewment():
 	xSpeed = rand_range(-0.2, 0.2)
 	ySpeed = rand_range(-0.2, 0.2)
 	moveUpdate = rand_range(0.4,0.6)
+	
+func searchEnemyTeam():
+	#Search for enemy group
+	if target == null and currentState == State.ATTACK and not gettingTargeted:
+		for enemy in get_tree().get_nodes_in_group("enemy"):
+			if enemy.currentState == enemy.State.ATTACK:
+				#if instanceInRange(enemy, 150):
+				if position.distance_to(enemy.position) < 150:
+					target = enemy
+					target.gettingTargeted = true
+					currentState = State.JOIN
+					break
 
 func _process(delta):
 	position += Vector2(xSpeed, ySpeed)
@@ -75,14 +90,12 @@ func _process(delta):
 		currentState = State.ATTACK
 
 	#Search for enemy group
-	if target == null and currentState == State.ATTACK and not gettingTargeted:
-		for enemy in get_tree().get_nodes_in_group("enemy"):
-			if enemy.currentState == enemy.State.ATTACK:
-				if instanceInRange(enemy, 150):
-					target = enemy
-					target.gettingTargeted = true
-					currentState = State.JOIN
-					break
+	if target == null:
+		updateTeam -= delta
+		
+	if (updateTeam < 0):
+		searchEnemyTeam()
+		updateTeam = updateTeamSave
 		
 	#Change States with key
 	if Input.is_action_just_pressed("idleState"):
@@ -98,7 +111,8 @@ func _process(delta):
 		State.ATTACK:	
 			xSpeed = 0
 			ySpeed = 0
-			if instanceInRange(playerNode, agroRange):
+			#if instanceInRange(playerNode, agroRange):
+			if position.distance_to(playerNode.position) < agroRange:
 				position = position.move_toward(playerNode.position, delta * chaseSpeed)
 		State.DEFEND:
 			xSpeed = 0
@@ -111,7 +125,8 @@ func _process(delta):
 			ySpeed = 0
 			if target != null and is_instance_valid(target):
 				position = position.move_toward(target.position + Vector2(xDist/2, yDist/2), delta * chaseSpeed)
-				if instanceInRange(target, xDist/1.5):
+				#if instanceInRange(target, xDist/1.5):
+				if position.distance_to(target.position) < xDist/1.5:
 					target = null
 					currentState = State.ATTACK
 			else:
@@ -130,7 +145,8 @@ func _process(delta):
 			pass
 
 	# looks if Person is mad and "inside" the player
-	if mad and instanceInRange(playerNode, 1):
+	#if mad and instanceInRange(playerNode, 1):
+	if mad and position.distance_to(playerNode.position) < 1:
 		if not currentState == State.DYING:
 			PlayerData.Health -= 10
 			PlayerData.play_hit_by_enemy_audio()
