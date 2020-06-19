@@ -136,7 +136,7 @@ __meta__ = {
 [node name="Player" parent="." instance=ExtResource( 4 )]
 
 [node name="AnimatedSprite" parent="Player" index="4"]
-frame = 2
+frame = 1
 
 [node name="Towers" type="Node" parent="."]
 
