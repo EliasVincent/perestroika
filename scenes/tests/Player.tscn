@@ -2,26 +2,26 @@
 
 [ext_resource path="res://sprites/Sprite-0002-Sheet.png" type="Texture" id=1]
 [ext_resource path="res://scenes/tests/PlayerBehaviour.gd" type="Script" id=2]
-[ext_resource path="res://sounds/Join_v2.wav" type="AudioStream" id=3]
+[ext_resource path="res://sounds/Recruit_LetsGo.wav" type="AudioStream" id=3]
 [ext_resource path="res://scenes/effects/PlayerDeathParticles.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/objects/FamePerSecondTimer.tscn" type="PackedScene" id=5]
 [ext_resource path="res://sprites/redCircle.png" type="Texture" id=6]
 
-[sub_resource type="AtlasTexture" id=1]
+[sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 1 )
 region = Rect2( 0, 0, 18, 18 )
 
-[sub_resource type="AtlasTexture" id=2]
+[sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 1 )
 region = Rect2( 18, 0, 18, 18 )
 
-[sub_resource type="AtlasTexture" id=3]
+[sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 1 )
 region = Rect2( 36, 0, 18, 18 )
 
-[sub_resource type="SpriteFrames" id=4]
+[sub_resource type="SpriteFrames" id=5]
 animations = [ {
-"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ) ],
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
