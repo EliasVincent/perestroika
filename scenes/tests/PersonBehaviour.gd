@@ -18,6 +18,9 @@ var yDist = 0
 var target = null
 var gettingTargeted = false
 
+var updateTeam = 10
+var updateTeamSave = updateTeam
+
 enum State {IDLE, ATTACK, DEFEND, JOIN, LEADER, LOYAL, LOYALDEFEND, DYING}
 var currentState = State.IDLE
 
@@ -41,6 +44,18 @@ func updateMovewment():
 	xSpeed = rand_range(-0.2, 0.2)
 	ySpeed = rand_range(-0.2, 0.2)
 	moveUpdate = rand_range(0.4,0.6)
+	
+func searchEnemyTeam():
+	#Search for enemy group
+	if target == null and currentState == State.ATTACK and not gettingTargeted:
+		for enemy in get_tree().get_nodes_in_group("enemy"):
+			if enemy.currentState == enemy.State.ATTACK:
+				#if instanceInRange(enemy, 150):
+				if position.distance_to(enemy.position) < 150:
+					target = enemy
+					target.gettingTargeted = true
+					currentState = State.JOIN
+					break
 
 func _process(delta):
 	position += Vector2(xSpeed, ySpeed)
@@ -74,15 +89,12 @@ func _process(delta):
 		currentState = State.ATTACK
 
 	#Search for enemy group
-	if target == null and currentState == State.ATTACK and not gettingTargeted:
-		for enemy in get_tree().get_nodes_in_group("enemy"):
-			if enemy.currentState == enemy.State.ATTACK:
-				#if instanceInRange(enemy, 150):
-				if position.distance_to(enemy.position) < 150:
-					target = enemy
-					target.gettingTargeted = true
-					currentState = State.JOIN
-					break
+	if target == null:
+		updateTeam -= delta
+		
+	if (updateTeam < 0):
+		searchEnemyTeam()
+		updateTeam = updateTeamSave
 		
 	#Change States with key
 	if Input.is_action_just_pressed("idleState"):
