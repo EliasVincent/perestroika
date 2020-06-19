@@ -68,7 +68,8 @@ func _process(delta):
 		$AnimatedSprite.modulate = Color(madStatus, 0, 0, 1)
 		
 	if madStatus > 1:
-		$TurnsEvilAudioPlayer.play()
+		if currentState == State.DEFEND:
+			$TurnsEvilAudioPlayer.play()
 		madStatusDone = true;
 		madStatus = 1
 		currentState = State.ATTACK
