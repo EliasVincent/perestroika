@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://sprites/Sprite-0002-Sheet.png" type="Texture" id=1]
 [ext_resource path="res://scenes/tests/PersonBehaviour.gd" type="Script" id=2]
-[ext_resource path="res://sounds/UnitTurnsEvil.wav" type="AudioStream" id=3]
+[ext_resource path="res://sounds/v2/UnitTurnsEvil_v2_8bitty.wav" type="AudioStream" id=3]
 [ext_resource path="res://scenes/effects/PersonDeathParticles.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/effects/DefenderDeathParticles.tscn" type="PackedScene" id=5]
+[ext_resource path="res://sounds/v2/UnitDeath_v2.wav" type="AudioStream" id=6]
 
 [sub_resource type="Animation" id=1]
 resource_name = "DefenderDeath"
@@ -47,6 +48,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("UnitDeathAudioPlayer:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
 [sub_resource type="Animation" id=2]
 length = 0.6
@@ -88,6 +101,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
+tracks/3/type = "value"
+tracks/3/path = NodePath("UnitDeathAudioPlayer:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
 [sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 1 )
@@ -122,7 +147,8 @@ __meta__ = {
 
 [node name="TurnsEvilAudioPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
-volume_db = -11.7
+volume_db = -15.0
+max_distance = 1000.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/DefenderDeath = SubResource( 1 )
@@ -134,5 +160,8 @@ anims/PersonDeath = SubResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 6 )
-frame = 2
 playing = true
+
+[node name="UnitDeathAudioPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 6 )
+volume_db = -5.0
