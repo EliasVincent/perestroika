@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/tests/Main.gd" type="Script" id=1]
 [ext_resource path="res://scenes/UI/fps_label.tscn" type="PackedScene" id=2]
@@ -7,13 +7,7 @@
 [ext_resource path="res://tilesets/streets_tileset.tres" type="TileSet" id=5]
 [ext_resource path="res://sounds/PlayerDeath.wav" type="AudioStream" id=6]
 [ext_resource path="res://scenes/UI/fame_label.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Pixeled.ttf" type="DynamicFontData" id=8]
-
-[sub_resource type="DynamicFont" id=1]
-size = 13
-outline_size = 1
-outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 8 )
+[ext_resource path="res://scenes/UI/AbilityLabel.tscn" type="PackedScene" id=8]
 
 [sub_resource type="Animation" id=2]
 length = 3.0
@@ -135,23 +129,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
-margin_left = 165.867
-margin_top = 7.02333
-margin_right = 555.867
-margin_bottom = 112.024
-custom_fonts/normal_font = SubResource( 1 )
-text = "Q: JOIN (100)	 |		E: CHEER (40)"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="AbilityLabel" parent="CanvasLayer" instance=ExtResource( 8 )]
+margin_left = 180.831
+margin_right = 570.831
 
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
 
 [node name="AnimatedSprite" parent="Player" index="4"]
-frame = 1
+frame = 2
 
 [node name="Towers" type="Node" parent="."]
 
