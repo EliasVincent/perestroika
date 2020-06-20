@@ -6,11 +6,14 @@ var tower = preload("res://scenes/tests/Tower.tscn")
 onready var enemiesFolder = get_node("/root/Main/Enemies")
 onready var towersFolder = get_node("/root/Main/Towers")
 
+
 var dict := {}
 
 signal hasDied
 
 func _ready():
+
+	
 	PlayerData.FAME = PlayerData.StartFAME
 	PlayerData.Health = PlayerData.StartHealth # resets the health when retrying
 	randomize() # randomizes the seed, otherwise the RnG would always be the same
@@ -60,6 +63,7 @@ func _ready():
 			enemiesFolder.add_child(grabbedInstance)
 	
 func _process(delta):
+	
 	if PlayerData.Health <= 0:
 		$AnimationPlayer.play("player_death")
 
@@ -68,3 +72,7 @@ func playerDeath():
 	
 func emitDeath():
 	emit_signal("hasDied")
+
+
+func _on_CountDownTimer_timeout():
+	$AnimationPlayer.play("player_death")
