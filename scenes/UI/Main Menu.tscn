@@ -11,15 +11,14 @@ outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=2]
 size = 22
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 extra_spacing_char = 4
 font_data = ExtResource( 3 )
 
-[sub_resource type="Animation" id=2]
-resource_name = "fade_in"
+[sub_resource type="Animation" id=3]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("ColorRect:modulate")
@@ -73,7 +72,7 @@ margin_left = 220.983
 margin_top = 126.587
 margin_right = 434.983
 margin_bottom = 228.587
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 text = "PLAY"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -105,7 +104,7 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "fade_in"
-anims/fade_in = SubResource( 2 )
+anims/fade_in = SubResource( 3 )
 
 [node name="About Button" type="Button" parent="."]
 margin_left = 491.578
