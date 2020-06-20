@@ -52,7 +52,7 @@ func _ready():
 		enemiesFolder.add_child(grabbedInstance)
 		
 	for tower in get_tree().get_nodes_in_group("towers"):
-		var randNum = rand_range(7, 30)
+		var randNum = rand_range(15, 30)
 		for i in randNum:
 			var grabbedInstance = myBody.instance()
 			grabbedInstance.position = tower.position + Vector2(rand_range(-100, 100), rand_range(-100, 100))

@@ -20,7 +20,7 @@ var JoinCost = 100
 var CheerCost = 15
 var joinCostSave = JoinCost
 var cheerCostSave = CheerCost
-var towerFameTimer = 2
+var towerFameTimer = 1
 var towerFameTimerSave = towerFameTimer
 
 onready var timer = get_node("Timer")
@@ -109,8 +109,9 @@ func _physics_process(delta):
 			if tower.maxFame > 0:
 				towerFameTimer -= delta
 				if towerFameTimer < 0:
-					PlayerData.FAME += 50
-					tower.maxFame -= 50
+					tower.get_node("CPUParticles2D").emitting = true
+					PlayerData.FAME += 25
+					tower.maxFame -= 25
 					towerFameTimer = towerFameTimerSave
 	
 	emit_signal("playerPosition")
