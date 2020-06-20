@@ -3,7 +3,7 @@ extends Label
 onready var countDownTimer = get_node("CountDownTimer")
 
 func _ready():
-	countDownTimer.set_wait_time(60)
+	countDownTimer.set_wait_time(99)
 	countDownTimer.start()
 	
 func _process(delta):

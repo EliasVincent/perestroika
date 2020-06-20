@@ -5,7 +5,7 @@
 [ext_resource path="res://scenes/UI/TutLabel.gd" type="Script" id=3]
 [ext_resource path="res://scenes/UI/Tutorial Cutscene.gd" type="Script" id=4]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "tutorial_cutscene_animation"
 length = 20.0
 tracks/0/type = "value"
@@ -59,7 +59,7 @@ tracks/3/keys = {
 } ]
 }
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 size = 20
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
@@ -71,7 +71,7 @@ outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=4]
 size = 20
 font_data = ExtResource( 1 )
 
@@ -80,7 +80,7 @@ script = ExtResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "tutorial_cutscene_animation"
-anims/tutorial_cutscene_animation = SubResource( 2 )
+anims/tutorial_cutscene_animation = SubResource( 1 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_left = -7.0
@@ -100,7 +100,7 @@ margin_left = 151.417
 margin_top = 173.814
 margin_right = 520.417
 margin_bottom = 344.814
-custom_fonts/normal_font = SubResource( 1 )
+custom_fonts/normal_font = SubResource( 2 )
 text = "YOU HAVE TO GATHER A CROWD AROUND YOU"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -133,7 +133,7 @@ margin_left = 151.417
 margin_top = 173.814
 margin_right = 520.417
 margin_bottom = 344.814
-custom_fonts/normal_font = SubResource( 1 )
+custom_fonts/normal_font = SubResource( 2 )
 text = "THE RED PEOPLE WILL
 TRY TO ATTACK YOU"
 __meta__ = {
@@ -170,7 +170,7 @@ margin_left = 56.5264
 margin_top = 108.474
 margin_right = 637.526
 margin_bottom = 335.474
-custom_fonts/normal_font = SubResource( 1 )
+custom_fonts/normal_font = SubResource( 2 )
 text = "GET AS MANY FOLLOWERS AS POSSIBLE UNTIL THE TIME RUNS OUT"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -181,7 +181,7 @@ margin_left = 301.404
 margin_top = 251.072
 margin_right = 435.404
 margin_bottom = 307.072
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 4 )
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
