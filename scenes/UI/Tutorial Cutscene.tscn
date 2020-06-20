@@ -1,0 +1,190 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Pixeled.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://scenes/objects/MenuPerson.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/UI/TutLabel.gd" type="Script" id=3]
+[ext_resource path="res://scenes/UI/Tutorial Cutscene.gd" type="Script" id=4]
+
+[sub_resource type="Animation" id=2]
+resource_name = "tutorial_cutscene_animation"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("1 - Gather Crowd:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.9, 3, 3.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("2 - Avoid Enemies:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 3.9, 4.5, 9.2, 9.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("3 - Get the most Followers:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 9.9, 10.7, 14.2, 14.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 15.3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "switchToMenu"
+} ]
+}
+
+[sub_resource type="DynamicFont" id=1]
+size = 20
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 14
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 20
+font_data = ExtResource( 1 )
+
+[node name="Tutorial Cutscene" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "tutorial_cutscene_animation"
+anims/tutorial_cutscene_animation = SubResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -7.0
+margin_top = -5.0
+margin_right = 656.0
+margin_bottom = 372.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="1 - Gather Crowd" type="Node2D" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="1 - Gather Crowd"]
+margin_left = 151.417
+margin_top = 173.814
+margin_right = 520.417
+margin_bottom = 344.814
+custom_fonts/normal_font = SubResource( 1 )
+text = "YOU HAVE TO GATHER A CROWD AROUND YOU"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Menu" parent="1 - Gather Crowd" instance=ExtResource( 2 )]
+position = Vector2( 309.796, 111.843 )
+
+[node name="Menu2" parent="1 - Gather Crowd" instance=ExtResource( 2 )]
+modulate = Color( 0.270588, 0.168627, 1, 1 )
+position = Vector2( 266.143, 108.427 )
+
+[node name="Menu3" parent="1 - Gather Crowd" instance=ExtResource( 2 )]
+modulate = Color( 0.270588, 0.168627, 1, 1 )
+position = Vector2( 308.701, 76.7022 )
+
+[node name="Menu4" parent="1 - Gather Crowd" instance=ExtResource( 2 )]
+modulate = Color( 0.270588, 0.168627, 1, 1 )
+position = Vector2( 346.616, 112.296 )
+
+[node name="Menu5" parent="1 - Gather Crowd" instance=ExtResource( 2 )]
+modulate = Color( 0.270588, 0.168627, 1, 1 )
+position = Vector2( 306.606, 140.077 )
+
+[node name="2 - Avoid Enemies" type="Node2D" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="2 - Avoid Enemies"]
+margin_left = 151.417
+margin_top = 173.814
+margin_right = 520.417
+margin_bottom = 344.814
+custom_fonts/normal_font = SubResource( 1 )
+text = "THE RED PEOPLE WILL
+TRY TO ATTACK YOU"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="2 - Avoid Enemies"]
+margin_left = 20.0
+margin_top = 292.0
+margin_right = 633.0
+margin_bottom = 463.0
+custom_fonts/normal_font = SubResource( 3 )
+text = "YOUR ALLIES CAN TURN INTO ENEMIES, CHEER THEM ON!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Menu" parent="2 - Avoid Enemies" instance=ExtResource( 2 )]
+position = Vector2( 318.269, 115.224 )
+
+[node name="Menu2" parent="2 - Avoid Enemies" instance=ExtResource( 2 )]
+modulate = Color( 1, 0, 0, 1 )
+position = Vector2( 251.954, 148.908 )
+
+[node name="Menu3" parent="2 - Avoid Enemies" instance=ExtResource( 2 )]
+modulate = Color( 1, 0, 0, 1 )
+position = Vector2( 354.059, 98.3823 )
+
+[node name="3 - Get the most Followers" type="Node2D" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="3 - Get the most Followers"]
+margin_left = 56.5264
+margin_top = 108.474
+margin_right = 637.526
+margin_bottom = 335.474
+custom_fonts/normal_font = SubResource( 1 )
+text = "GET AS MANY FOLLOWERS AS POSSIBLE UNTIL THE TIME RUNS OUT"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TutLabel" type="Label" parent="3 - Get the most Followers"]
+margin_left = 301.404
+margin_top = 251.072
+margin_right = 435.404
+margin_bottom = 307.072
+custom_fonts/font = SubResource( 5 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="3 - Get the most Followers/TutLabel"]
