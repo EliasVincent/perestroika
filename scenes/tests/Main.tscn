@@ -139,7 +139,7 @@ margin_right = 570.831
 [node name="Player" parent="." instance=ExtResource( 4 )]
 
 [node name="AnimatedSprite" parent="Player" index="4"]
-frame = 0
+frame = 1
 
 [node name="Towers" type="Node" parent="."]
 

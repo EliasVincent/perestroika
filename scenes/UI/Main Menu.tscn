@@ -1,0 +1,149 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scenes/UI/Main Menu.gd" type="Script" id=1]
+[ext_resource path="res://scenes/tests/Main.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Pixeled.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://scenes/UI/AboutDialog.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 18
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 22
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_char = 4
+font_data = ExtResource( 3 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "fade_in"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[node name="Main Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+nextScene = ExtResource( 2 )
+
+[node name="Title" type="RichTextLabel" parent="."]
+margin_left = 128.679
+margin_top = 6.90377
+margin_right = 548.679
+margin_bottom = 76.9038
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[wave amp=10]UNTITLED STRATEGY GAME"
+text = "UNTITLED STRATEGY GAME"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Play Button" type="Button" parent="."]
+margin_left = 220.983
+margin_top = 126.587
+margin_right = 434.983
+margin_bottom = 228.587
+custom_fonts/font = SubResource( 3 )
+text = "PLAY"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Jam Link Button" type="Button" parent="."]
+margin_left = 235.368
+margin_top = 263.526
+margin_right = 423.368
+margin_bottom = 292.526
+text = "Check out the Game Jam"
+
+[node name="Label" type="Label" parent="."]
+margin_right = 40.0
+margin_bottom = 14.0
+text = "prerelease"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+margin_left = -6.3158
+margin_top = -6.3158
+margin_right = 645.684
+margin_bottom = 368.684
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "fade_in"
+anims/fade_in = SubResource( 2 )
+
+[node name="About Button" type="Button" parent="."]
+margin_left = 491.578
+margin_top = 175.789
+margin_right = 549.578
+margin_bottom = 195.789
+text = "ABOUT"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AboutDialog" type="AcceptDialog" parent="About Button"]
+margin_left = -438.053
+margin_top = -103.526
+margin_right = 101.947
+margin_bottom = 79.4736
+window_title = "About this game"
+resizable = true
+dialog_text = "Made by William Djalal (SoulPixel) and Elias Vincent Simon (Riesyeti).
+
+For the Godot Wild Jam 22. All game assets were done by us.
+
+Made with the Godot Engine. Visit godotengine.org/license"
+dialog_autowrap = true
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Source Link Button" type="Button" parent="."]
+margin_left = 235.0
+margin_top = 308.0
+margin_right = 424.0
+margin_bottom = 339.0
+text = "Check out the Source Code"
+[connection signal="pressed" from="Play Button" to="." method="_on_Play_Button_pressed"]
+[connection signal="pressed" from="Jam Link Button" to="." method="_on_Jam_Link_Button_pressed"]
+[connection signal="pressed" from="About Button" to="." method="_on_About_Button_pressed"]
+[connection signal="custom_action" from="About Button/AboutDialog" to="." method="_on_AboutDialog_custom_action"]
+[connection signal="pressed" from="Source Link Button" to="." method="_on_Source_Link_Button_pressed"]
+[connection signal="pressed" from="Source Link Button" to="." method="_on_Button_pressed"]
