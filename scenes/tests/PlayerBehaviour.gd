@@ -113,6 +113,10 @@ func _physics_process(delta):
 					PlayerData.FAME += 25
 					tower.maxFame -= 25
 					towerFameTimer = towerFameTimerSave
+			else:
+				tower.get_node("CPUParticles2D").emitting = false
+		else:
+			tower.get_node("CPUParticles2D").emitting = false
 	
 	emit_signal("playerPosition")
 
