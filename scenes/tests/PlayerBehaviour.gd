@@ -20,6 +20,8 @@ var JoinCost = 100
 var CheerCost = 15
 var joinCostSave = JoinCost
 var cheerCostSave = CheerCost
+var towerFameTimer = 1
+var towerFameTimerSave = towerFameTimer
 
 onready var timer = get_node("Timer")
 
@@ -100,6 +102,21 @@ func _physics_process(delta):
 	# function that slowly stops the player, adjust the last value of the speed of the slowdown
 	velocity.x = lerp(velocity.x,0,0.3)
 	velocity.y = lerp(velocity.y,0,0.3)
+	
+	#Check for towers
+	for tower in get_tree().get_nodes_in_group("towers"):
+		if position.distance_to(tower.position) < 75:
+			if tower.maxFame > 0:
+				towerFameTimer -= delta
+				if towerFameTimer < 0:
+					tower.get_node("CPUParticles2D").emitting = true
+					PlayerData.FAME += 25
+					tower.maxFame -= 25
+					towerFameTimer = towerFameTimerSave
+			else:
+				tower.get_node("CPUParticles2D").emitting = false
+		else:
+			tower.get_node("CPUParticles2D").emitting = false
 	
 	emit_signal("playerPosition")
 

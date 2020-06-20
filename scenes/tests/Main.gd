@@ -21,17 +21,17 @@ func _ready():
 	#Random hole 1
 	var xlength = rand_range(0, 200)
 	var ylength = rand_range(0, 200)
-	var xPos = rand_range(-200, 900)
-	var yPos = rand_range(-200, 900)
+	var xPos = rand_range(200, 1200)
+	var yPos = rand_range(0, 1200)
 	#Random hole 2
 	var xlength2 = rand_range(0, 250)
 	var ylength2 = rand_range(0, 250)
-	var xPos2 = rand_range(100, 700)
-	var yPos2 = rand_range(100, 700)
+	var xPos2 = rand_range(300, 1100)
+	var yPos2 = rand_range(0, 900)
 	#Random hole 3
 	var xlength3 = rand_range(0, 100)
 	var ylength3 = rand_range(0, 100)
-	var xPos3 = rand_range(0, 900)
+	var xPos3 = rand_range(400, 900)
 	var yPos3 = rand_range(0, 900)
 	
 	#Tower Spawn
@@ -45,17 +45,17 @@ func _ready():
 	var numOfSpawns = 1500
 	for i in numOfSpawns:
 		var grabbedInstance = myBody.instance()
-		grabbedInstance.position = Vector2(rand_range(-400, 1000), rand_range(-400, 1000))
+		grabbedInstance.position = Vector2(rand_range(-200, 1200), rand_range(-200, 1200))
 		while grabbedInstance.position.x < xPos + xlength and grabbedInstance.position.x > xPos - xlength and grabbedInstance.position.y < yPos + ylength and grabbedInstance.position.y > yPos - ylength:
-			grabbedInstance.position = Vector2(rand_range(-400, 1000), rand_range(-400, 1000))
+			grabbedInstance.position = Vector2(rand_range(-200, 1200), rand_range(-200, 1200))
 		while grabbedInstance.position.x < xPos2 + xlength2 and grabbedInstance.position.x > xPos2 - xlength2 and grabbedInstance.position.y < yPos2 + ylength2 and grabbedInstance.position.y > yPos2 - ylength2:
-			grabbedInstance.position = Vector2(rand_range(-400, 1000), rand_range(-400, 1000))
+			grabbedInstance.position = Vector2(rand_range(-200, 1200), rand_range(-200, 1200))
 		while grabbedInstance.position.x < xPos3 + xlength3 and grabbedInstance.position.x > xPos3 - xlength3 and grabbedInstance.position.y < yPos3 + ylength3 and grabbedInstance.position.y > yPos3 - ylength3:
-			grabbedInstance.position = Vector2(rand_range(-400, 1000), rand_range(-400, 1000))
+			grabbedInstance.position = Vector2(rand_range(-200, 1200), rand_range(-200, 1200))
 		enemiesFolder.add_child(grabbedInstance)
 		
 	for tower in get_tree().get_nodes_in_group("towers"):
-		var randNum = rand_range(7, 30)
+		var randNum = rand_range(15, 30)
 		for i in randNum:
 			var grabbedInstance = myBody.instance()
 			grabbedInstance.position = tower.position + Vector2(rand_range(-100, 100), rand_range(-100, 100))
