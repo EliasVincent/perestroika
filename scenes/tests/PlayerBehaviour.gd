@@ -166,8 +166,8 @@ func countDefenders():
 				cameraZoom = Vector2(1.25, 1.25)
 				currentRadius = 200
 				SPEED = speedSave / 2
-				JoinCost = joinCostSave * 3
-				CheerCost = cheerCostSave * 3
+				JoinCost = joinCostSave * 2.5
+				CheerCost = cheerCostSave * 2.5
 				radCircle.scale.x = 6
 				radCircle.scale.y = 6
 				enemy.xDist = rand_range(-100, 100)
@@ -178,8 +178,8 @@ func countDefenders():
 				cameraZoom = Vector2(1.5, 1.5)
 				currentRadius = 300
 				SPEED = speedSave / 4
-				JoinCost = joinCostSave * 5
-				CheerCost = cheerCostSave * 5
+				JoinCost = joinCostSave * 4
+				CheerCost = cheerCostSave * 4
 				radCircle.scale.x = 12
 				radCircle.scale.y = 12
 				enemy.xDist = rand_range(-125, 125)
@@ -190,8 +190,8 @@ func countDefenders():
 				cameraZoom = Vector2(1.75, 1.75)
 				currentRadius = 350
 				SPEED = speedSave / 5
-				JoinCost = joinCostSave * 8
-				CheerCost = cheerCostSave * 8
+				JoinCost = joinCostSave * 6
+				CheerCost = cheerCostSave * 6
 				radCircle.scale.x = 18
 				radCircle.scale.y = 18
 				enemy.xDist = rand_range(-175, 175)
@@ -202,8 +202,8 @@ func countDefenders():
 				cameraZoom = Vector2(2, 2)
 				currentRadius = 450
 				SPEED = speedSave / 8
-				JoinCost = joinCostSave * 14
-				CheerCost = cheerCostSave * 14
+				JoinCost = joinCostSave * 10
+				CheerCost = cheerCostSave * 10
 				radCircle.scale.x = 24
 				radCircle.scale.y = 24
 				enemy.xDist = rand_range(-250, 250)
