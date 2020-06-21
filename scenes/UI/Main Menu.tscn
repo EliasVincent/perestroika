@@ -10,7 +10,7 @@
 
 [sub_resource type="DynamicFont" id=1]
 size = 49
-outline_size = 1
+outline_size = 4
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 7 )
 
@@ -137,14 +137,15 @@ tile_data = PoolIntArray( -131063, 0, 0, -65536, 3, 0, -65535, 3, 0, -65534, 3, 
 
 [node name="Title" type="RichTextLabel" parent="."]
 modulate = Color( 0.847059, 0.847059, 0.847059, 1 )
-margin_left = 183.009
-margin_top = 26.4342
-margin_right = 593.009
-margin_bottom = 168.434
+margin_left = 128.0
+margin_top = 16.0
+margin_right = 538.0
+margin_bottom = 158.0
 custom_fonts/normal_font = SubResource( 1 )
+custom_colors/default_color = Color( 1, 0, 0, 1 )
 bbcode_enabled = true
-bbcode_text = "[wave amp=25]perepolnennom"
-text = "perepolnennom"
+bbcode_text = "[wave amp=25] pErEstRoiKa"
+text = " pErEstRoiKa"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -157,10 +158,10 @@ margin_bottom = 357.851
 text = "(C) SoulPixel, Riesyeti"
 
 [node name="Label2" type="Label" parent="."]
-margin_left = 207.096
-margin_top = 2.47037
-margin_right = 451.096
-margin_bottom = 28.4704
+margin_left = 168.0
+margin_top = 354.0
+margin_right = 412.0
+margin_bottom = 380.0
 custom_fonts/font = SubResource( 2 )
 text = "PRESS F11 TO TOGGLE FULLSCREEN"
 __meta__ = {
@@ -217,10 +218,10 @@ __meta__ = {
 modulate = Color( 1, 1, 1, 0.890196 )
 
 [node name="Tutorial Button" type="Button" parent="Buttons"]
-margin_left = 23.805
-margin_top = 150.975
-margin_right = 200.805
-margin_bottom = 202.975
+margin_left = 212.303
+margin_top = 184.0
+margin_right = 389.303
+margin_bottom = 230.0
 custom_fonts/font = SubResource( 4 )
 text = "HOW TO PLAY"
 __meta__ = {
@@ -228,10 +229,10 @@ __meta__ = {
 }
 
 [node name="Source Link Button" type="Button" parent="Buttons"]
-margin_left = 164.605
-margin_top = 301.682
-margin_right = 500.605
-margin_bottom = 344.682
+margin_left = 128.0
+margin_top = 304.0
+margin_right = 464.0
+margin_bottom = 347.0
 custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "CHECK OUT THE SOURCE CODE"
@@ -240,10 +241,10 @@ __meta__ = {
 }
 
 [node name="Jam Link Button" type="Button" parent="Buttons"]
-margin_left = 176.463
-margin_top = 245.39
-margin_right = 484.463
-margin_bottom = 291.39
+margin_left = 144.984
+margin_top = 245.289
+margin_right = 452.984
+margin_bottom = 291.289
 custom_fonts/font = SubResource( 6 )
 custom_colors/font_color = Color( 0.776471, 0.537255, 0.317647, 1 )
 text = "CHECK OUT THE GAME JAM"
@@ -252,10 +253,10 @@ __meta__ = {
 }
 
 [node name="Play Button" type="Button" parent="Buttons"]
-margin_left = 244.73
-margin_top = 137.268
-margin_right = 409.73
-margin_bottom = 216.268
+margin_left = 240.0
+margin_top = 96.0
+margin_right = 370.0
+margin_bottom = 170.0
 custom_fonts/font = SubResource( 7 )
 text = "PLAY"
 __meta__ = {
@@ -264,7 +265,7 @@ __meta__ = {
 [connection signal="pressed" from="About Button" to="." method="_on_About_Button_pressed"]
 [connection signal="custom_action" from="About Button/AboutDialog" to="." method="_on_AboutDialog_custom_action"]
 [connection signal="pressed" from="Buttons/Tutorial Button" to="." method="_on_Tutorial_Button_pressed"]
-[connection signal="pressed" from="Buttons/Source Link Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="Buttons/Source Link Button" to="." method="_on_Source_Link_Button_pressed"]
+[connection signal="pressed" from="Buttons/Source Link Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="Buttons/Jam Link Button" to="." method="_on_Jam_Link_Button_pressed"]
 [connection signal="pressed" from="Buttons/Play Button" to="." method="_on_Play_Button_pressed"]
