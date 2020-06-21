@@ -198,9 +198,12 @@ margin_right = 101.947
 margin_bottom = 79.4736
 window_title = "About this game"
 resizable = true
-dialog_text = "Made by William Djalal (SoulPixel) and Elias Vincent Simon (Riesyeti).
+dialog_text = "Made by William Djalal (@SoulPixelIV) and Elias Vincent Simon (Riesyeti @riesereti).
+Playtesters: Alkan \"Alkanco\" Akarsu, Nico @protokrok, Jana @once_00
 
 For the Godot Wild Jam 22. All game assets were made by us.
+
+Thanks to SoulPixel's mom.
 
 Made with the Godot Engine. Visit godotengine.org/license"
 dialog_autowrap = true
@@ -226,9 +229,9 @@ __meta__ = {
 }
 
 [node name="Source Link Button" type="Button" parent="Buttons"]
-margin_left = 128.0
+margin_left = 136.0
 margin_top = 288.0
-margin_right = 464.0
+margin_right = 479.0
 margin_bottom = 331.0
 custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
@@ -262,7 +265,7 @@ __meta__ = {
 [connection signal="pressed" from="About Button" to="." method="_on_About_Button_pressed"]
 [connection signal="custom_action" from="About Button/AboutDialog" to="." method="_on_AboutDialog_custom_action"]
 [connection signal="pressed" from="Buttons/Tutorial Button" to="." method="_on_Tutorial_Button_pressed"]
-[connection signal="pressed" from="Buttons/Source Link Button" to="." method="_on_Source_Link_Button_pressed"]
 [connection signal="pressed" from="Buttons/Source Link Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Buttons/Source Link Button" to="." method="_on_Source_Link_Button_pressed"]
 [connection signal="pressed" from="Buttons/Jam Link Button" to="." method="_on_Jam_Link_Button_pressed"]
 [connection signal="pressed" from="Buttons/Play Button" to="." method="_on_Play_Button_pressed"]
