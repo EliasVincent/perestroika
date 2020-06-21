@@ -17,4 +17,4 @@ func _on_Timer_timeout():
 func _process(delta):
 	# displays fame currency and fame per tick
 	text = ""
-	text += "FAME: " + str(PlayerData.FAME) + "(+" + str(PlayerData.FAMEPERSECOND) + ")"
+	text += "FAME: " + str(PlayerData.FAME) + "   " + str(PlayerData.FAMEPERSECOND) + " FLWRS"

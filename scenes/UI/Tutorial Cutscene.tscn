@@ -1,13 +1,15 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Pixeled.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scenes/objects/MenuPerson.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/UI/TutLabel.gd" type="Script" id=3]
 [ext_resource path="res://scenes/UI/Tutorial Cutscene.gd" type="Script" id=4]
+[ext_resource path="res://kremlin.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://scenes/UI/MenuTower.tscn" type="PackedScene" id=6]
 
 [sub_resource type="Animation" id=1]
 resource_name = "tutorial_cutscene_animation"
-length = 20.0
+length = 30.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("1 - Gather Crowd:modulate")
 tracks/0/interp = 1
@@ -15,7 +17,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.9, 3, 3.7 ),
+"times": PoolRealArray( 0, 0.9, 4.6, 5.2 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
@@ -27,7 +29,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 3.9, 4.5, 9.2, 9.9 ),
+"times": PoolRealArray( 0, 5, 5.7, 11.4, 12.1 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
@@ -39,7 +41,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 9.9, 10.7, 14.2, 14.9 ),
+"times": PoolRealArray( 0, 21.2, 22.2, 27.7, 28.9 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
@@ -51,27 +53,63 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 15.3 ),
+"times": PoolRealArray( 30 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
 "method": "switchToMenu"
 } ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("4 - Gold and Towers:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 12.7, 13.4, 20.3, 21.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
 
 [sub_resource type="DynamicFont" id=2]
-size = 20
+size = 34
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 1 )
+font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=3]
-size = 14
+size = 17
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 1 )
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 25
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=4]
+size = 34
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 21
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 33
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=7]
 size = 20
 font_data = ExtResource( 1 )
 
@@ -96,12 +134,23 @@ __meta__ = {
 modulate = Color( 1, 1, 1, 0 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="1 - Gather Crowd"]
-margin_left = 151.417
-margin_top = 173.814
-margin_right = 520.417
-margin_bottom = 344.814
+margin_left = 135.666
+margin_top = 188.344
+margin_right = 542.666
+margin_bottom = 364.344
 custom_fonts/normal_font = SubResource( 2 )
-text = "YOU HAVE TO GATHER A CROWD AROUND YOU"
+text = "YOU HAVE TO RECRUIT A CROWD AROUND YOU"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="1 - Gather Crowd"]
+margin_left = 164.226
+margin_top = 301.476
+margin_right = 506.226
+margin_bottom = 364.476
+custom_fonts/normal_font = SubResource( 3 )
+text = "THE MORE FOLLOWErS YOU HAVE. THE MORE FAME YOU GET"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -125,15 +174,36 @@ position = Vector2( 346.616, 112.296 )
 modulate = Color( 0.270588, 0.168627, 1, 1 )
 position = Vector2( 306.606, 140.077 )
 
+[node name="4 - Gold and Towers" type="Node2D" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="4 - Gold and Towers"]
+margin_left = 158.728
+margin_top = 224.643
+margin_right = 511.728
+margin_bottom = 348.643
+custom_fonts/normal_font = SubResource( 8 )
+text = "TRY TO GET GOLDEN FOLLOWERS, GO TO A TOWER TO GAIN LOTS OF FAME"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Menu" parent="4 - Gold and Towers" instance=ExtResource( 2 )]
+modulate = Color( 0.964706, 0.996078, 0, 1 )
+position = Vector2( 171.97, 118.074 )
+
+[node name="Node2D" parent="4 - Gold and Towers" instance=ExtResource( 6 )]
+position = Vector2( 421.799, 139.65 )
+
 [node name="2 - Avoid Enemies" type="Node2D" parent="."]
 modulate = Color( 1, 1, 1, 0 )
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="2 - Avoid Enemies"]
-margin_left = 151.417
-margin_top = 173.814
-margin_right = 520.417
-margin_bottom = 344.814
-custom_fonts/normal_font = SubResource( 2 )
+margin_left = 112.311
+margin_top = 191.023
+margin_right = 516.311
+margin_bottom = 284.023
+custom_fonts/normal_font = SubResource( 4 )
 text = "THE RED PEOPLE WILL
 TRY TO ATTACK YOU"
 __meta__ = {
@@ -145,7 +215,7 @@ margin_left = 20.0
 margin_top = 292.0
 margin_right = 633.0
 margin_bottom = 463.0
-custom_fonts/normal_font = SubResource( 3 )
+custom_fonts/normal_font = SubResource( 5 )
 text = "YOUR ALLIES CAN TURN INTO ENEMIES, CHEER THEM ON!"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -166,22 +236,22 @@ position = Vector2( 354.059, 98.3823 )
 modulate = Color( 1, 1, 1, 0 )
 
 [node name="RichTextLabel4" type="RichTextLabel" parent="3 - Get the most Followers"]
-margin_left = 56.5264
-margin_top = 108.474
-margin_right = 637.526
-margin_bottom = 335.474
-custom_fonts/normal_font = SubResource( 2 )
+margin_left = 141.733
+margin_top = 63.9075
+margin_right = 534.732
+margin_bottom = 290.908
+custom_fonts/normal_font = SubResource( 6 )
 text = "GET AS MANY FOLLOWERS AS POSSIBLE UNTIL THE TIME RUNS OUT"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="TutLabel" type="Label" parent="3 - Get the most Followers"]
-margin_left = 301.404
-margin_top = 251.072
-margin_right = 435.404
-margin_bottom = 307.072
-custom_fonts/font = SubResource( 4 )
+margin_left = 278.191
+margin_top = 249.524
+margin_right = 412.191
+margin_bottom = 305.524
+custom_fonts/font = SubResource( 7 )
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false

@@ -63,6 +63,8 @@ func _ready():
 			enemiesFolder.add_child(grabbedInstance)
 	
 func _process(delta):
+	if Input.is_action_just_pressed("reset_button"):
+		get_tree().reload_current_scene()
 	
 	if PlayerData.Health <= 0:
 		$AnimationPlayer.play("player_death")

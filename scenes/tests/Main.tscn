@@ -10,12 +10,12 @@
 [ext_resource path="res://scenes/UI/AbilityLabel.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/objects/StreetLight.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/UI/time_label.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Pixeled.ttf" type="DynamicFontData" id=11]
+[ext_resource path="res://kremlin.ttf" type="DynamicFontData" id=11]
 [ext_resource path="res://tilesets/street_border_tileset.tres" type="TileSet" id=12]
 [ext_resource path="res://sounds/30secondsleft.wav" type="AudioStream" id=13]
 
 [sub_resource type="DynamicFont" id=1]
-size = 19
+size = 22
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 11 )
@@ -141,8 +141,8 @@ __meta__ = {
 
 [node name="BG2" type="ColorRect" parent="CanvasLayer"]
 modulate = Color( 1, 1, 1, 0.254902 )
-margin_left = 461.0
-margin_top = 316.0
+margin_left = 480.0
+margin_top = 320.0
 margin_right = 646.0
 margin_bottom = 363.0
 color = Color( 0, 0, 0, 1 )
@@ -154,15 +154,15 @@ __meta__ = {
 
 [node name="health_label" parent="CanvasLayer" instance=ExtResource( 3 )]
 margin_left = 512.0
-margin_top = 8.0
+margin_top = 16.0
 margin_right = 666.0
-margin_bottom = 71.0
+margin_bottom = 79.0
 
 [node name="fame_label" parent="CanvasLayer" instance=ExtResource( 7 )]
-margin_left = 36.3153
-margin_top = 7.40985
-margin_right = 183.316
-margin_bottom = 63.4098
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 163.001
+margin_bottom = 72.0
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 modulate = Color( 1, 1, 1, 0 )
@@ -176,16 +176,16 @@ __meta__ = {
 }
 
 [node name="AbilityLabel" parent="CanvasLayer" instance=ExtResource( 8 )]
-margin_left = 192.0
-margin_top = 0.0
-margin_right = 582.0
-margin_bottom = 105.001
+margin_left = 208.599
+margin_top = 11.5924
+margin_right = 598.599
+margin_bottom = 116.593
 
 [node name="time_label" parent="CanvasLayer" instance=ExtResource( 10 )]
-margin_left = 471.451
-margin_top = 306.789
-margin_right = 580.451
-margin_bottom = 360.789
+margin_left = 496.0
+margin_top = 328.0
+margin_right = 605.0
+margin_bottom = 382.0
 custom_fonts/font = SubResource( 1 )
 
 [node name="Enemies" type="Node" parent="."]

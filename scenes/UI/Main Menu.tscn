@@ -1,8 +1,7 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scenes/UI/Main Menu.gd" type="Script" id=1]
 [ext_resource path="res://scenes/tests/Main.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Pixeled.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://scenes/UI/AboutDialog.gd" type="Script" id=4]
 [ext_resource path="res://tilesets/streetsv2_tileset.tres" type="TileSet" id=5]
 [ext_resource path="res://scenes/objects/MenuPerson.tscn" type="PackedScene" id=6]
@@ -15,10 +14,10 @@ outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 7 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 9
+size = 12
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 3 )
+font_data = ExtResource( 7 )
 
 [sub_resource type="Animation" id=3]
 length = 2.0
@@ -48,32 +47,29 @@ tracks/1/keys = {
 }
 
 [sub_resource type="DynamicFont" id=4]
-outline_size = 1
+size = 24
+outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
-extra_spacing_top = -6
-font_data = ExtResource( 3 )
+font_data = ExtResource( 7 )
 
 [sub_resource type="DynamicFont" id=5]
-size = 14
-outline_size = 1
+size = 21
+outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
-extra_spacing_top = -3
-font_data = ExtResource( 3 )
+font_data = ExtResource( 7 )
 
 [sub_resource type="DynamicFont" id=6]
-size = 14
-outline_size = 1
+size = 21
+outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
-extra_spacing_top = -4
-font_data = ExtResource( 3 )
+font_data = ExtResource( 7 )
 
 [sub_resource type="DynamicFont" id=7]
-size = 22
-outline_size = 1
+size = 34
+outline_size = 3
 outline_color = Color( 0, 0, 0, 1 )
-extra_spacing_bottom = 5
 extra_spacing_char = 4
-font_data = ExtResource( 3 )
+font_data = ExtResource( 7 )
 
 [node name="Main Menu" type="Control"]
 anchor_right = 1.0
@@ -138,9 +134,9 @@ tile_data = PoolIntArray( -131063, 0, 0, -65536, 3, 0, -65535, 3, 0, -65534, 3, 
 [node name="Title" type="RichTextLabel" parent="."]
 modulate = Color( 0.847059, 0.847059, 0.847059, 1 )
 margin_left = 128.0
-margin_top = 16.0
+margin_top = 32.0
 margin_right = 538.0
-margin_bottom = 158.0
+margin_bottom = 174.0
 custom_fonts/normal_font = SubResource( 1 )
 custom_colors/default_color = Color( 1, 0, 0, 1 )
 bbcode_enabled = true
@@ -158,12 +154,13 @@ margin_bottom = 357.851
 text = "(C) SoulPixel, Riesyeti"
 
 [node name="Label2" type="Label" parent="."]
-margin_left = 168.0
-margin_top = 354.0
-margin_right = 412.0
-margin_bottom = 380.0
+margin_left = 488.0
+margin_top = 272.0
+margin_right = 630.0
+margin_bottom = 321.0
 custom_fonts/font = SubResource( 2 )
-text = "PRESS F11 TO TOGGLE FULLSCREEN"
+text = "PRESS F11 TO TOGGLE
+FULLSCREEN"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -218,10 +215,10 @@ __meta__ = {
 modulate = Color( 1, 1, 1, 0.890196 )
 
 [node name="Tutorial Button" type="Button" parent="Buttons"]
-margin_left = 212.303
-margin_top = 184.0
-margin_right = 389.303
-margin_bottom = 230.0
+margin_left = 208.874
+margin_top = 184.857
+margin_right = 385.874
+margin_bottom = 230.857
 custom_fonts/font = SubResource( 4 )
 text = "HOW TO PLAY"
 __meta__ = {
@@ -230,9 +227,9 @@ __meta__ = {
 
 [node name="Source Link Button" type="Button" parent="Buttons"]
 margin_left = 128.0
-margin_top = 304.0
+margin_top = 288.0
 margin_right = 464.0
-margin_bottom = 347.0
+margin_bottom = 331.0
 custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "CHECK OUT THE SOURCE CODE"
@@ -241,10 +238,10 @@ __meta__ = {
 }
 
 [node name="Jam Link Button" type="Button" parent="Buttons"]
-margin_left = 144.984
-margin_top = 245.289
-margin_right = 452.984
-margin_bottom = 291.289
+margin_left = 152.0
+margin_top = 240.0
+margin_right = 457.0
+margin_bottom = 277.0
 custom_fonts/font = SubResource( 6 )
 custom_colors/font_color = Color( 0.776471, 0.537255, 0.317647, 1 )
 text = "CHECK OUT THE GAME JAM"
@@ -253,10 +250,10 @@ __meta__ = {
 }
 
 [node name="Play Button" type="Button" parent="Buttons"]
-margin_left = 240.0
-margin_top = 96.0
-margin_right = 370.0
-margin_bottom = 170.0
+margin_left = 232.0
+margin_top = 128.0
+margin_right = 362.0
+margin_bottom = 176.0
 custom_fonts/font = SubResource( 7 )
 text = "PLAY"
 __meta__ = {
