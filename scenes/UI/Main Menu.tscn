@@ -251,10 +251,10 @@ __meta__ = {
 }
 
 [node name="Play Button" type="Button" parent="Buttons"]
-margin_left = 244.73
-margin_top = 137.268
-margin_right = 409.73
-margin_bottom = 216.268
+margin_left = 230.604
+margin_top = 133.935
+margin_right = 395.604
+margin_bottom = 212.935
 custom_fonts/font = SubResource( 6 )
 text = "PLAY"
 __meta__ = {
