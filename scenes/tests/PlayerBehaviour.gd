@@ -23,6 +23,8 @@ var cheerCostSave = CheerCost
 var towerFameTimer = 1
 var towerFameTimerSave = towerFameTimer
 
+var cameraZoom = Vector2(0.75, 0.75)
+
 onready var timer = get_node("Timer")
 
 func _ready():
@@ -60,6 +62,12 @@ func _physics_process(delta):
 		velocity.x = -SPEED
 	if Input.is_action_pressed("right"):
 		velocity.x = SPEED
+		
+	#Camera
+	if cameraZoom > camera.get_zoom():
+		camera.zoom += Vector2(delta / 4, delta / 4)
+	if cameraZoom < camera.get_zoom():
+		camera.zoom -= Vector2(delta / 4, delta / 4)
 		
 	checkDefenderCountTimer -= delta
 	if checkDefenderCountTimer < 0:
@@ -131,7 +139,7 @@ func countDefenders():
 	if currentDefenderCount < 20:
 		for enemy in get_tree().get_nodes_in_group("enemy"):
 			if enemy.currentState == enemy.State.DEFEND or enemy.currentState == enemy.State.LOYALDEFEND:
-				camera.zoom = Vector2(0.75, 0.75)
+				cameraZoom = Vector2(0.75, 0.75)
 				currentRadius = 100
 				SPEED = speedSave
 				JoinCost = joinCostSave
@@ -143,7 +151,7 @@ func countDefenders():
 	elif currentDefenderCount < 50:
 		for enemy in get_tree().get_nodes_in_group("enemy"):
 			if enemy.currentState == enemy.State.DEFEND or enemy.currentState == enemy.State.LOYALDEFEND:
-				camera.zoom = Vector2(1, 1)
+				cameraZoom = Vector2(1, 1)
 				currentRadius = 150
 				SPEED = speedSave / 1.5
 				JoinCost = joinCostSave * 1.5
@@ -155,7 +163,7 @@ func countDefenders():
 	elif currentDefenderCount < 100:
 		for enemy in get_tree().get_nodes_in_group("enemy"):
 			if enemy.currentState == enemy.State.DEFEND or enemy.currentState == enemy.State.LOYALDEFEND:
-				camera.zoom = Vector2(1.25, 1.25)
+				cameraZoom = Vector2(1.25, 1.25)
 				currentRadius = 200
 				SPEED = speedSave / 2
 				JoinCost = joinCostSave * 3
@@ -167,7 +175,7 @@ func countDefenders():
 	elif currentDefenderCount < 150:
 		for enemy in get_tree().get_nodes_in_group("enemy"):
 			if enemy.currentState == enemy.State.DEFEND or enemy.currentState == enemy.State.LOYALDEFEND:
-				camera.zoom = Vector2(1.5, 1.5)
+				cameraZoom = Vector2(1.5, 1.5)
 				currentRadius = 300
 				SPEED = speedSave / 4
 				JoinCost = joinCostSave * 5
@@ -179,7 +187,7 @@ func countDefenders():
 	elif currentDefenderCount < 250:
 		for enemy in get_tree().get_nodes_in_group("enemy"):
 			if enemy.currentState == enemy.State.DEFEND or enemy.currentState == enemy.State.LOYALDEFEND:
-				camera.zoom = Vector2(1.75, 1.75)
+				cameraZoom = Vector2(1.75, 1.75)
 				currentRadius = 350
 				SPEED = speedSave / 5
 				JoinCost = joinCostSave * 8
@@ -191,7 +199,7 @@ func countDefenders():
 	else:
 		for enemy in get_tree().get_nodes_in_group("enemy"):
 			if enemy.currentState == enemy.State.DEFEND or enemy.currentState == enemy.State.LOYALDEFEND:
-				camera.zoom = Vector2(2, 2)
+				cameraZoom = Vector2(2, 2)
 				currentRadius = 450
 				SPEED = speedSave / 8
 				JoinCost = joinCostSave * 14
