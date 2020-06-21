@@ -5,7 +5,7 @@
 [ext_resource path="res://scenes/objects/FamePerSecondTimer.tscn" type="PackedScene" id=3]
 
 [sub_resource type="DynamicFont" id=1]
-size = 7
+size = 10
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 2 )

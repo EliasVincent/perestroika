@@ -76,3 +76,9 @@ func emitDeath():
 
 func _on_CountDownTimer_timeout():
 	$AnimationPlayer.play("player_death")
+
+
+
+func _on_Music_timeout():
+	# adjust the Music Timer wait time when changing total time, should play when 29 seconds left
+	$MusicPlayer.playing = true

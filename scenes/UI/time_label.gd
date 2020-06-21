@@ -2,6 +2,8 @@ extends Label
 
 onready var countDownTimer = get_node("CountDownTimer")
 
+signal playMusic
+
 func _ready():
 	countDownTimer.set_wait_time(100)
 	countDownTimer.start()

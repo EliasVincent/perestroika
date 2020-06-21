@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scenes/tests/Main.gd" type="Script" id=1]
 [ext_resource path="res://scenes/UI/fps_label.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://scenes/UI/time_label.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Pixeled.ttf" type="DynamicFontData" id=11]
 [ext_resource path="res://tilesets/street_border_tileset.tres" type="TileSet" id=12]
+[ext_resource path="res://sounds/30secondsleft.wav" type="AudioStream" id=13]
 
 [sub_resource type="DynamicFont" id=1]
 size = 19
@@ -152,16 +153,16 @@ __meta__ = {
 [node name="fps_label" parent="CanvasLayer" instance=ExtResource( 2 )]
 
 [node name="health_label" parent="CanvasLayer" instance=ExtResource( 3 )]
-margin_left = 495.886
-margin_top = 12.5208
-margin_right = 649.886
-margin_bottom = 75.5208
+margin_left = 512.0
+margin_top = 8.0
+margin_right = 666.0
+margin_bottom = 71.0
 
 [node name="fame_label" parent="CanvasLayer" instance=ExtResource( 7 )]
-margin_left = 37.5696
-margin_top = 12.8454
-margin_right = 184.57
-margin_bottom = 68.8454
+margin_left = 36.3153
+margin_top = 7.40985
+margin_right = 183.316
+margin_bottom = 63.4098
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 modulate = Color( 1, 1, 1, 0 )
@@ -175,8 +176,10 @@ __meta__ = {
 }
 
 [node name="AbilityLabel" parent="CanvasLayer" instance=ExtResource( 8 )]
-margin_left = 180.831
-margin_right = 570.831
+margin_left = 192.0
+margin_top = 0.0
+margin_right = 582.0
+margin_bottom = 105.001
 
 [node name="time_label" parent="CanvasLayer" instance=ExtResource( 10 )]
 margin_left = 471.451
@@ -188,9 +191,6 @@ custom_fonts/font = SubResource( 1 )
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
-
-[node name="AnimatedSprite" parent="Player" index="5"]
-frame = 0
 
 [node name="Towers" type="Node" parent="."]
 
@@ -217,8 +217,16 @@ position = Vector2( -351.616, 38.8629 )
 
 [node name="StreetLight2" parent="." instance=ExtResource( 9 )]
 position = Vector2( 686.071, 230.705 )
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+
+[node name="Music" type="Timer" parent="."]
+wait_time = 71.0
+autostart = true
 [connection signal="hasDied" from="." to="Player" method="_on_Main_hasDied"]
 [connection signal="timeout" from="CanvasLayer/time_label/CountDownTimer" to="." method="_on_CountDownTimer_timeout"]
+[connection signal="timeout" from="Music" to="." method="_on_Music_timeout"]
 
 [editable path="CanvasLayer/time_label"]
 

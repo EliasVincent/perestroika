@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scenes/UI/Main Menu.gd" type="Script" id=1]
 [ext_resource path="res://scenes/tests/Main.tscn" type="PackedScene" id=2]
@@ -6,12 +6,13 @@
 [ext_resource path="res://scenes/UI/AboutDialog.gd" type="Script" id=4]
 [ext_resource path="res://tilesets/streetsv2_tileset.tres" type="TileSet" id=5]
 [ext_resource path="res://scenes/objects/MenuPerson.tscn" type="PackedScene" id=6]
+[ext_resource path="res://kremlin.ttf" type="DynamicFontData" id=7]
 
 [sub_resource type="DynamicFont" id=1]
-size = 32
+size = 49
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 3 )
+font_data = ExtResource( 7 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 9
@@ -136,14 +137,14 @@ tile_data = PoolIntArray( -131063, 0, 0, -65536, 3, 0, -65535, 3, 0, -65534, 3, 
 
 [node name="Title" type="RichTextLabel" parent="."]
 modulate = Color( 0.847059, 0.847059, 0.847059, 1 )
-margin_left = 147.0
-margin_top = 5.0
-margin_right = 536.0
-margin_bottom = 107.0
+margin_left = 183.009
+margin_top = 26.4342
+margin_right = 593.009
+margin_bottom = 168.434
 custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
-bbcode_text = "[wave amp=10]SOULEVEMENT"
-text = "SOULEVEMENT"
+bbcode_text = "[wave amp=25]perepolnennom"
+text = "perepolnennom"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -263,7 +264,7 @@ __meta__ = {
 [connection signal="pressed" from="About Button" to="." method="_on_About_Button_pressed"]
 [connection signal="custom_action" from="About Button/AboutDialog" to="." method="_on_AboutDialog_custom_action"]
 [connection signal="pressed" from="Buttons/Tutorial Button" to="." method="_on_Tutorial_Button_pressed"]
-[connection signal="pressed" from="Buttons/Source Link Button" to="." method="_on_Source_Link_Button_pressed"]
 [connection signal="pressed" from="Buttons/Source Link Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Buttons/Source Link Button" to="." method="_on_Source_Link_Button_pressed"]
 [connection signal="pressed" from="Buttons/Jam Link Button" to="." method="_on_Jam_Link_Button_pressed"]
 [connection signal="pressed" from="Buttons/Play Button" to="." method="_on_Play_Button_pressed"]
