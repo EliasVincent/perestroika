@@ -8,5 +8,8 @@ margin_top = 31.4604
 margin_right = 554.471
 margin_bottom = 45.4604
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="CountDownTimer" type="Timer" parent="."]

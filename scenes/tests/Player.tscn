@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://sprites/Sprite-0002-Sheet.png" type="Texture" id=1]
 [ext_resource path="res://scenes/tests/PlayerBehaviour.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://scenes/effects/PlayerDeathParticles.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/objects/FamePerSecondTimer.tscn" type="PackedScene" id=5]
 [ext_resource path="res://sprites/redCircle.png" type="Texture" id=6]
+[ext_resource path="res://sounds/v2/Cheer_v2.wav" type="AudioStream" id=7]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )
@@ -48,6 +49,9 @@ zoom = Vector2( 0.75, 0.75 )
 [node name="RecruitAudioPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 
+[node name="CheerAudioPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+
 [node name="Timer" parent="." instance=ExtResource( 5 )]
 
 [node name="PlayerDeathParticles" parent="." instance=ExtResource( 4 )]
@@ -56,6 +60,7 @@ one_shot = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 4 )
+frame = 1
 speed_scale = 0.75
 playing = true
 

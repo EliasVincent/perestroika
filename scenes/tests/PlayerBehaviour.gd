@@ -84,6 +84,7 @@ func _physics_process(delta):
 	#CHEER ABILITY
 	if Input.is_action_just_pressed("cheer") and PlayerData.FAME >= CheerCost:
 		PlayerData.FAME -= CheerCost
+		$CheerAudioPlayer.play()
 		var enemyList = getAllEnemiesInRadius(currentRadius)
 		for i in enemyList:
 			if i.currentState == i.State.DEFEND and i.mad:

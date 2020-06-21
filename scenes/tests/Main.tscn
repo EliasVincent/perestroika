@@ -28,7 +28,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 3 ),
+"times": PoolRealArray( 0, 2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "values": [ {
 "args": [  ],
@@ -79,7 +79,7 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 1, 3 ),
+"times": PoolRealArray( 0, 1, 1.9 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
@@ -91,7 +91,7 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 1 ),
+"times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
@@ -104,6 +104,18 @@ tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
 "times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Player:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.9 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
@@ -177,7 +189,7 @@ custom_fonts/font = SubResource( 1 )
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
 
-[node name="AnimatedSprite" parent="Player" index="4"]
+[node name="AnimatedSprite" parent="Player" index="5"]
 frame = 0
 
 [node name="Towers" type="Node" parent="."]
@@ -201,9 +213,10 @@ anims/player_death = SubResource( 2 )
 stream = ExtResource( 6 )
 
 [node name="StreetLight" parent="." instance=ExtResource( 9 )]
+position = Vector2( -351.616, 38.8629 )
 
 [node name="StreetLight2" parent="." instance=ExtResource( 9 )]
-position = Vector2( 689.086, 220.154 )
+position = Vector2( 686.071, 230.705 )
 [connection signal="hasDied" from="." to="Player" method="_on_Main_hasDied"]
 [connection signal="timeout" from="CanvasLayer/time_label/CountDownTimer" to="." method="_on_CountDownTimer_timeout"]
 

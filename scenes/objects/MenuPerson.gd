@@ -8,3 +8,6 @@ func updateMovewment():
 	xSpeed = rand_range(-0.2, 0.2)
 	ySpeed = rand_range(-0.2, 0.2)
 	moveUpdate = rand_range(0.4,0.6)
+
+func _process(delta):
+	position += Vector2(xSpeed, ySpeed)
