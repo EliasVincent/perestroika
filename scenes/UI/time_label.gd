@@ -12,5 +12,5 @@ func _process(delta):
 	var timeLeft = countDownTimer.get_time_left()
 	text = ""
 	text += "TIME: " + str(stepify(timeLeft, 0.1))
-	if timeLeft <= 20:
+	if timeLeft <= 30:
 		modulate = Color(1,0,0,1)
