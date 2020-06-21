@@ -92,10 +92,10 @@ func _physics_process(delta):
 					i.madStatus = 0
 	
 	# CHEATS, DELETE BEFORE RELEASE
-	if Input.is_action_just_pressed("fame-cheat"):
-		PlayerData.FAME += 300
-	if Input.is_action_just_pressed("death-cheat"):
-		PlayerData.Health = 0
+	#if Input.is_action_just_pressed("fame-cheat"):
+		#PlayerData.FAME += 300
+	#if Input.is_action_just_pressed("death-cheat"):
+		#PlayerData.Health = 0
 	
 	# moves the body, with the velocity as parameter
 	velocity = move_and_slide(velocity)
@@ -140,7 +140,7 @@ func countDefenders():
 				radCircle.scale.y = 1
 				enemy.xDist = rand_range(-50, 50)
 				enemy.yDist = rand_range(-50, 50)
-	elif currentDefenderCount < 40:
+	elif currentDefenderCount < 50:
 		for enemy in get_tree().get_nodes_in_group("enemy"):
 			if enemy.currentState == enemy.State.DEFEND or enemy.currentState == enemy.State.LOYALDEFEND:
 				camera.zoom = Vector2(1, 1)
@@ -152,7 +152,7 @@ func countDefenders():
 				radCircle.scale.y = 2
 				enemy.xDist = rand_range(-75, 75)
 				enemy.yDist = rand_range(-75, 75)
-	elif currentDefenderCount < 60:
+	elif currentDefenderCount < 100:
 		for enemy in get_tree().get_nodes_in_group("enemy"):
 			if enemy.currentState == enemy.State.DEFEND or enemy.currentState == enemy.State.LOYALDEFEND:
 				camera.zoom = Vector2(1.25, 1.25)
@@ -164,7 +164,7 @@ func countDefenders():
 				radCircle.scale.y = 4
 				enemy.xDist = rand_range(-100, 100)
 				enemy.yDist = rand_range(-100, 100)
-	else:
+	elif currentDefenderCount < 150:
 		for enemy in get_tree().get_nodes_in_group("enemy"):
 			if enemy.currentState == enemy.State.DEFEND or enemy.currentState == enemy.State.LOYALDEFEND:
 				camera.zoom = Vector2(1.5, 1.5)
@@ -176,6 +176,30 @@ func countDefenders():
 				radCircle.scale.y = 8
 				enemy.xDist = rand_range(-125, 125)
 				enemy.yDist = rand_range(-125, 125)
+	elif currentDefenderCount < 250:
+		for enemy in get_tree().get_nodes_in_group("enemy"):
+			if enemy.currentState == enemy.State.DEFEND or enemy.currentState == enemy.State.LOYALDEFEND:
+				camera.zoom = Vector2(1.75, 1.75)
+				currentRadius = 350
+				SPEED = speedSave / 5
+				JoinCost = joinCostSave * 8
+				CheerCost = cheerCostSave * 8
+				radCircle.scale.x = 10
+				radCircle.scale.y = 10
+				enemy.xDist = rand_range(-175, 175)
+				enemy.yDist = rand_range(-175, 175)
+	else:
+		for enemy in get_tree().get_nodes_in_group("enemy"):
+			if enemy.currentState == enemy.State.DEFEND or enemy.currentState == enemy.State.LOYALDEFEND:
+				camera.zoom = Vector2(2, 2)
+				currentRadius = 450
+				SPEED = speedSave / 8
+				JoinCost = joinCostSave * 14
+				CheerCost = cheerCostSave * 14
+				radCircle.scale.x = 14
+				radCircle.scale.y = 14
+				enemy.xDist = rand_range(-250, 250)
+				enemy.yDist = rand_range(-250, 250)
 
 func battle(enemyCount, enemyList):
 	for i in enemyCount:
