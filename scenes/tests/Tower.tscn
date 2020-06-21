@@ -35,12 +35,13 @@ script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( -24, -8 )
-scale = Vector2( 2, 2 )
+scale = Vector2( 2.25, 2.25 )
 texture = ExtResource( 3 )
 offset = Vector2( -2, 0 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 4 )
+frame = 1
 playing = true
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]

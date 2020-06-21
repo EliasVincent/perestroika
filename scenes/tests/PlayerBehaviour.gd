@@ -156,8 +156,8 @@ func countDefenders():
 				SPEED = speedSave / 1.5
 				JoinCost = joinCostSave * 1.5
 				CheerCost = cheerCostSave * 1.5
-				radCircle.scale.x = 2
-				radCircle.scale.y = 2
+				radCircle.scale.x = 3
+				radCircle.scale.y = 3
 				enemy.xDist = rand_range(-75, 75)
 				enemy.yDist = rand_range(-75, 75)
 	elif currentDefenderCount < 100:
@@ -168,8 +168,8 @@ func countDefenders():
 				SPEED = speedSave / 2
 				JoinCost = joinCostSave * 3
 				CheerCost = cheerCostSave * 3
-				radCircle.scale.x = 4
-				radCircle.scale.y = 4
+				radCircle.scale.x = 6
+				radCircle.scale.y = 6
 				enemy.xDist = rand_range(-100, 100)
 				enemy.yDist = rand_range(-100, 100)
 	elif currentDefenderCount < 150:
@@ -180,8 +180,8 @@ func countDefenders():
 				SPEED = speedSave / 4
 				JoinCost = joinCostSave * 5
 				CheerCost = cheerCostSave * 5
-				radCircle.scale.x = 8
-				radCircle.scale.y = 8
+				radCircle.scale.x = 12
+				radCircle.scale.y = 12
 				enemy.xDist = rand_range(-125, 125)
 				enemy.yDist = rand_range(-125, 125)
 	elif currentDefenderCount < 250:
@@ -192,8 +192,8 @@ func countDefenders():
 				SPEED = speedSave / 5
 				JoinCost = joinCostSave * 8
 				CheerCost = cheerCostSave * 8
-				radCircle.scale.x = 10
-				radCircle.scale.y = 10
+				radCircle.scale.x = 18
+				radCircle.scale.y = 18
 				enemy.xDist = rand_range(-175, 175)
 				enemy.yDist = rand_range(-175, 175)
 	else:
@@ -204,8 +204,8 @@ func countDefenders():
 				SPEED = speedSave / 8
 				JoinCost = joinCostSave * 14
 				CheerCost = cheerCostSave * 14
-				radCircle.scale.x = 14
-				radCircle.scale.y = 14
+				radCircle.scale.x = 24
+				radCircle.scale.y = 24
 				enemy.xDist = rand_range(-250, 250)
 				enemy.yDist = rand_range(-250, 250)
 
