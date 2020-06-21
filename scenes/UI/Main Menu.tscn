@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scenes/UI/Main Menu.gd" type="Script" id=1]
 [ext_resource path="res://scenes/tests/Main.tscn" type="PackedScene" id=2]
@@ -13,7 +13,13 @@ outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 3 )
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="DynamicFont" id=7]
+size = 9
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="Animation" id=2]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("ColorRect:modulate")
@@ -40,13 +46,13 @@ tracks/1/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=3]
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 extra_spacing_top = -6
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=4]
 size = 14
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
@@ -60,7 +66,7 @@ outline_color = Color( 0, 0, 0, 1 )
 extra_spacing_top = -4
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=6]
 size = 22
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
@@ -149,6 +155,17 @@ margin_right = 68.9025
 margin_bottom = 357.851
 text = "(C) SoulPixel, Riesyeti"
 
+[node name="Label2" type="Label" parent="."]
+margin_left = 207.096
+margin_top = 2.47037
+margin_right = 451.096
+margin_bottom = 28.4704
+custom_fonts/font = SubResource( 7 )
+text = "PRESS F11 TO TOGGLE FULLSCREEN"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
 modulate = Color( 1, 1, 1, 0 )
@@ -163,7 +180,7 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "fade_in"
-anims/fade_in = SubResource( 3 )
+anims/fade_in = SubResource( 2 )
 
 [node name="About Button" type="Button" parent="."]
 margin_left = 547.533
@@ -203,7 +220,7 @@ margin_left = 23.805
 margin_top = 150.975
 margin_right = 200.805
 margin_bottom = 202.975
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 3 )
 text = "HOW TO PLAY"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -214,7 +231,7 @@ margin_left = 164.605
 margin_top = 301.682
 margin_right = 500.605
 margin_bottom = 344.682
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "CHECK OUT THE SOURCE CODE"
 __meta__ = {
@@ -238,7 +255,7 @@ margin_left = 244.73
 margin_top = 137.268
 margin_right = 409.73
 margin_bottom = 216.268
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 6 )
 text = "PLAY"
 __meta__ = {
 "_edit_use_anchors_": false

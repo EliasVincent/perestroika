@@ -11,3 +11,7 @@ func _on_RetryButton_pressed():
 
 func _on_MenuButton_pressed():
 	get_tree().change_scene_to(menuScene)
+
+func _process(delta):
+	if Input.is_action_just_pressed("start_button"):
+		get_tree().change_scene_to(nextScene)
