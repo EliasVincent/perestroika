@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://scenes/tests/Main.gd" type="Script" id=1]
 [ext_resource path="res://scenes/UI/fps_label.tscn" type="PackedScene" id=2]
@@ -13,6 +13,14 @@
 [ext_resource path="res://kremlin.ttf" type="DynamicFontData" id=11]
 [ext_resource path="res://tilesets/street_border_tileset.tres" type="TileSet" id=12]
 [ext_resource path="res://sounds/30secondsleft.wav" type="AudioStream" id=13]
+[ext_resource path="res://android things/Dpad_DOWN_pressed.png" type="Texture" id=14]
+[ext_resource path="res://android things/Dpad_RIGHT.png" type="Texture" id=15]
+[ext_resource path="res://android things/Dpad_RIGHT_pressed.png" type="Texture" id=16]
+[ext_resource path="res://android things/Dpad_DOWN.png" type="Texture" id=17]
+[ext_resource path="res://android things/Dpad_UP.png" type="Texture" id=18]
+[ext_resource path="res://android things/Dpad_LEFT_pressed.png" type="Texture" id=19]
+[ext_resource path="res://android things/Dpad_LEFT.png" type="Texture" id=20]
+[ext_resource path="res://android things/Dpad_UP_pressed.png" type="Texture" id=21]
 
 [sub_resource type="DynamicFont" id=1]
 size = 22
@@ -192,6 +200,9 @@ custom_fonts/font = SubResource( 1 )
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
 
+[node name="AnimatedSprite" parent="Player" index="5"]
+frame = 2
+
 [node name="Towers" type="Node" parent="."]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -224,9 +235,53 @@ stream = ExtResource( 13 )
 [node name="Music" type="Timer" parent="."]
 wait_time = 71.0
 autostart = true
+
+[node name="Android UI" type="CanvasLayer" parent="."]
+
+[node name="RIGHT Button" type="TouchScreenButton" parent="Android UI"]
+position = Vector2( 110, 286 )
+normal = ExtResource( 15 )
+pressed = ExtResource( 16 )
+
+[node name="DOWN Button" type="TouchScreenButton" parent="Android UI"]
+position = Vector2( 61, 325 )
+normal = ExtResource( 17 )
+pressed = ExtResource( 14 )
+
+[node name="LEFT Button" type="TouchScreenButton" parent="Android UI"]
+position = Vector2( 17, 285 )
+normal = ExtResource( 20 )
+pressed = ExtResource( 19 )
+
+[node name="UP Button" type="TouchScreenButton" parent="Android UI"]
+position = Vector2( 66, 237 )
+normal = ExtResource( 18 )
+pressed = ExtResource( 21 )
+
+[node name="Button" type="Button" parent="Android UI"]
+margin_left = 197.0
+margin_top = 12.0
+margin_right = 209.0
+margin_bottom = 32.0
+text = "RECRUIT"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="Button" parent="Android UI"]
+margin_left = 465.0
+margin_top = 14.0
+margin_right = 477.0
+margin_bottom = 34.0
+text = "CHEER"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="hasDied" from="." to="Player" method="_on_Main_hasDied"]
 [connection signal="timeout" from="CanvasLayer/time_label/CountDownTimer" to="." method="_on_CountDownTimer_timeout"]
 [connection signal="timeout" from="Music" to="." method="_on_Music_timeout"]
+[connection signal="pressed" from="Android UI/UP Button" to="." method="_on_UP_Button_pressed"]
+[connection signal="released" from="Android UI/UP Button" to="." method="_on_UP_Button_released"]
 
 [editable path="CanvasLayer/time_label"]
 

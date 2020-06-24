@@ -84,3 +84,11 @@ func _on_CountDownTimer_timeout():
 func _on_Music_timeout():
 	# adjust the Music Timer wait time when changing total time, should play when 29 seconds left
 	$MusicPlayer.playing = true
+
+
+func _on_UP_Button_pressed():
+	Input.action_press("up")
+
+
+func _on_UP_Button_released():
+	pass # Replace with function body.
