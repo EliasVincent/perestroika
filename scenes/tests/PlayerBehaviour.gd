@@ -27,6 +27,17 @@ var cameraZoom = Vector2(0.75, 0.75)
 
 onready var timer = get_node("Timer")
 
+# ANDROID SPECIFIC
+var leftTouched = false
+var rightTouched = false
+var upTouched = false
+var downTouched = false
+var recruitTouched = false
+var cheerTouched = false
+
+var touchedCounter = 0
+
+
 func _ready():
 	timer.set_wait_time(3)
 	timer.start()
@@ -54,13 +65,13 @@ func instanceInRange(instance, distance):
 # everything physics and controls should happen in _physics_process
 func _physics_process(delta):
 	checkForEnemies()
-	if Input.is_action_pressed("up"):
+	if Input.is_action_pressed("up") or upTouched:
 		velocity.y = -SPEED
-	if Input.is_action_pressed("down"):
+	if Input.is_action_pressed("down") or downTouched:
 		velocity.y = SPEED
-	if Input.is_action_pressed("left"):
+	if Input.is_action_pressed("left") or leftTouched:
 		velocity.x = -SPEED
-	if Input.is_action_pressed("right"):
+	if Input.is_action_pressed("right") or rightTouched:
 		velocity.x = SPEED
 		
 	#Camera
@@ -75,7 +86,11 @@ func _physics_process(delta):
 		countDefenders()
 	
 	#JOIN ABILITY
-	if Input.is_action_just_pressed("join") and PlayerData.FAME >= JoinCost:
+	if Input.is_action_just_pressed("join") or recruitTouched and PlayerData.FAME >= JoinCost:
+		if touchedCounter > 1:
+			return
+		touchedCounter += 1
+		
 		PlayerData.FAME -= JoinCost
 		$RecruitAudioPlayer.play()
 		var enemyList = getAllEnemiesInRadius(currentRadius)
@@ -90,7 +105,11 @@ func _physics_process(delta):
 					i.mad = true
 					
 	#CHEER ABILITY
-	if Input.is_action_just_pressed("cheer") and PlayerData.FAME >= CheerCost:
+	if Input.is_action_just_pressed("cheer") or cheerTouched and PlayerData.FAME >= CheerCost:
+		if touchedCounter > 1:
+			return
+		touchedCounter += 1
+		
 		PlayerData.FAME -= CheerCost
 		$CheerAudioPlayer.play()
 		var enemyList = getAllEnemiesInRadius(currentRadius)
@@ -256,3 +275,58 @@ func _on_Timer_timeout():
 			PlayerData.FAME += 1
 		else:
 			pass
+
+# ANDROID SPECIFIC
+
+
+
+func _on_RIGHT_Button_pressed():
+	rightTouched = true
+
+
+func _on_DOWN_Button_pressed():
+	downTouched = true
+
+
+func _on_LEFT_Button_pressed():
+	leftTouched = true
+
+
+func _on_UP_Button_pressed():
+	upTouched = true
+
+
+func _on_Recruit_Button_pressed():
+	recruitTouched = true
+	touchedCounter += 1
+
+
+func _on_Cheer_Button_pressed():
+	cheerTouched = true
+	touchedCounter += 1
+
+
+func _on_RIGHT_Button_released():
+	rightTouched = false
+
+
+func _on_DOWN_Button_released():
+	downTouched = false
+
+
+func _on_LEFT_Button_released():
+	leftTouched = false
+
+
+func _on_UP_Button_released():
+	upTouched = false
+
+
+func _on_Recruit_Button_released():
+	recruitTouched = false
+	touchedCounter = 0
+
+
+func _on_Cheer_Button_released():
+	cheerTouched = false
+	touchedCounter = 0

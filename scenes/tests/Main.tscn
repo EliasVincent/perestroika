@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://scenes/tests/Main.gd" type="Script" id=1]
 [ext_resource path="res://scenes/UI/fps_label.tscn" type="PackedScene" id=2]
@@ -21,6 +21,8 @@
 [ext_resource path="res://android things/Dpad_LEFT_pressed.png" type="Texture" id=19]
 [ext_resource path="res://android things/Dpad_LEFT.png" type="Texture" id=20]
 [ext_resource path="res://android things/Dpad_UP_pressed.png" type="Texture" id=21]
+[ext_resource path="res://android things/cheer_touch_button.png" type="Texture" id=22]
+[ext_resource path="res://android things/recruit_touch_button.png" type="Texture" id=23]
 
 [sub_resource type="DynamicFont" id=1]
 size = 22
@@ -184,10 +186,10 @@ __meta__ = {
 }
 
 [node name="AbilityLabel" parent="CanvasLayer" instance=ExtResource( 8 )]
-margin_left = 208.599
-margin_top = 11.5924
-margin_right = 598.599
-margin_bottom = 116.593
+margin_left = 188.599
+margin_top = 13.5924
+margin_right = 578.599
+margin_bottom = 118.593
 
 [node name="time_label" parent="CanvasLayer" instance=ExtResource( 10 )]
 margin_left = 496.0
@@ -201,7 +203,7 @@ custom_fonts/font = SubResource( 1 )
 [node name="Player" parent="." instance=ExtResource( 4 )]
 
 [node name="AnimatedSprite" parent="Player" index="5"]
-frame = 2
+frame = 0
 
 [node name="Towers" type="Node" parent="."]
 
@@ -237,9 +239,10 @@ wait_time = 71.0
 autostart = true
 
 [node name="Android UI" type="CanvasLayer" parent="."]
+layer = 20
 
 [node name="RIGHT Button" type="TouchScreenButton" parent="Android UI"]
-position = Vector2( 110, 286 )
+position = Vector2( 98, 286 )
 normal = ExtResource( 15 )
 pressed = ExtResource( 16 )
 
@@ -249,39 +252,37 @@ normal = ExtResource( 17 )
 pressed = ExtResource( 14 )
 
 [node name="LEFT Button" type="TouchScreenButton" parent="Android UI"]
-position = Vector2( 17, 285 )
+position = Vector2( 27, 285 )
 normal = ExtResource( 20 )
 pressed = ExtResource( 19 )
 
 [node name="UP Button" type="TouchScreenButton" parent="Android UI"]
-position = Vector2( 66, 237 )
+position = Vector2( 65, 248 )
 normal = ExtResource( 18 )
 pressed = ExtResource( 21 )
 
-[node name="Button" type="Button" parent="Android UI"]
-margin_left = 197.0
-margin_top = 12.0
-margin_right = 209.0
-margin_bottom = 32.0
-text = "RECRUIT"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Recruit Button" type="TouchScreenButton" parent="Android UI"]
+position = Vector2( 179, 47 )
+normal = ExtResource( 23 )
 
-[node name="Button2" type="Button" parent="Android UI"]
-margin_left = 465.0
-margin_top = 14.0
-margin_right = 477.0
-margin_bottom = 34.0
-text = "CHEER"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Cheer Button" type="TouchScreenButton" parent="Android UI"]
+position = Vector2( 357, 49 )
+normal = ExtResource( 22 )
 [connection signal="hasDied" from="." to="Player" method="_on_Main_hasDied"]
 [connection signal="timeout" from="CanvasLayer/time_label/CountDownTimer" to="." method="_on_CountDownTimer_timeout"]
 [connection signal="timeout" from="Music" to="." method="_on_Music_timeout"]
-[connection signal="pressed" from="Android UI/UP Button" to="." method="_on_UP_Button_pressed"]
-[connection signal="released" from="Android UI/UP Button" to="." method="_on_UP_Button_released"]
+[connection signal="pressed" from="Android UI/RIGHT Button" to="Player" method="_on_RIGHT_Button_pressed"]
+[connection signal="released" from="Android UI/RIGHT Button" to="Player" method="_on_RIGHT_Button_released"]
+[connection signal="pressed" from="Android UI/DOWN Button" to="Player" method="_on_DOWN_Button_pressed"]
+[connection signal="released" from="Android UI/DOWN Button" to="Player" method="_on_DOWN_Button_released"]
+[connection signal="pressed" from="Android UI/LEFT Button" to="Player" method="_on_LEFT_Button_pressed"]
+[connection signal="released" from="Android UI/LEFT Button" to="Player" method="_on_LEFT_Button_released"]
+[connection signal="pressed" from="Android UI/UP Button" to="Player" method="_on_UP_Button_pressed"]
+[connection signal="released" from="Android UI/UP Button" to="Player" method="_on_UP_Button_released"]
+[connection signal="pressed" from="Android UI/Recruit Button" to="Player" method="_on_Recruit_Button_pressed"]
+[connection signal="released" from="Android UI/Recruit Button" to="Player" method="_on_Recruit_Button_released"]
+[connection signal="pressed" from="Android UI/Cheer Button" to="Player" method="_on_Cheer_Button_pressed"]
+[connection signal="released" from="Android UI/Cheer Button" to="Player" method="_on_Cheer_Button_released"]
 
 [editable path="CanvasLayer/time_label"]
 
