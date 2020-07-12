@@ -37,6 +37,8 @@ var cheerTouched = false
 
 var touchedCounter = 0
 
+onready var joystick = get_parent().get_node("Android UI/Joystick/TouchScreenButton")
+
 
 func _ready():
 	timer.set_wait_time(3)
@@ -65,14 +67,16 @@ func instanceInRange(instance, distance):
 # everything physics and controls should happen in _physics_process
 func _physics_process(delta):
 	checkForEnemies()
-	if Input.is_action_pressed("up") or upTouched:
-		velocity.y = -SPEED
-	if Input.is_action_pressed("down") or downTouched:
-		velocity.y = SPEED
-	if Input.is_action_pressed("left") or leftTouched:
-		velocity.x = -SPEED
-	if Input.is_action_pressed("right") or rightTouched:
-		velocity.x = SPEED
+	
+	#MOVEMENT
+#	if Input.is_action_pressed("up") or upTouched:
+#		velocity.y = -SPEED
+#	if Input.is_action_pressed("down") or downTouched:
+#		velocity.y = SPEED
+#	if Input.is_action_pressed("left") or leftTouched:
+#		velocity.x = -SPEED
+#	if Input.is_action_pressed("right") or rightTouched:
+#		velocity.x = SPEED
 		
 	#Camera
 	if cameraZoom > camera.get_zoom():
@@ -125,7 +129,7 @@ func _physics_process(delta):
 		#PlayerData.Health = 0
 	
 	# moves the body, with the velocity as parameter
-	velocity = move_and_slide(velocity)
+	velocity = move_and_slide(joystick.get_value() * 200)
 
 	# function that slowly stops the player, adjust the last value of the speed of the slowdown
 	velocity.x = lerp(velocity.x,0,0.3)
